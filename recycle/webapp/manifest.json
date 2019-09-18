@@ -14,7 +14,6 @@
 			"version": "1.40.12"
 		}
 	},
-
 	"sap.ui": {
 		"technology": "UI5",
 		"icons": {
@@ -31,7 +30,6 @@
 			"phone": true
 		}
 	},
-
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
@@ -79,6 +77,24 @@
 				"name": "RouteHome",
 				"pattern": "RouteHome",
 				"target": ["TargetHome"]
+			}, {
+				"name": "LabelV1",
+				"pattern": "LabelV1",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["LabelView1"]
+			}, {
+				"name": "LabelV2",
+				"pattern": "LabelV2",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["LabelView2"]
+			}, {
+				"name": "Success",
+				"pattern": "Success",
+				"titleTarget": "",
+				"greedy": false,
+				"target": ["SuccessView"]
 			}],
 			"targets": {
 				"TargetHome": {
@@ -87,6 +103,18 @@
 					"clearControlAggregation": false,
 					"viewId": "Home",
 					"viewName": "Home"
+				},
+				"LabelView1": {
+					"viewType": "XML",
+					"viewName": "LabelView1"
+				},
+				"LabelView2": {
+					"viewType": "XML",
+					"viewName": "LabelView2"
+				},
+				"SuccessView": {
+					"viewType": "XML",
+					"viewName": "SuccessView"
 				}
 			}
 		}
