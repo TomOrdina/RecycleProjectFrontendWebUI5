@@ -59,9 +59,11 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -73,29 +75,29 @@
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
-			"routes": [{
-				"name": "RouteHome",
-				"pattern": "RouteHome",
-				"target": ["TargetHome"]
-			}, {
-				"name": "LabelV1",
-				"pattern": "LabelV1",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["LabelView1"]
-			}, {
-				"name": "LabelV2",
-				"pattern": "LabelV2",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["LabelView2"]
-			}, {
-				"name": "Success",
-				"pattern": "Success",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["SuccessView"]
-			}],
+			"routes": [
+				{
+					"name": "RouteHome",
+					"pattern": "RouteHome",
+					"target": [
+						"TargetHome"
+					]
+				},
+				{
+					"name": "RouteRingFirstPage",
+					"pattern": "RouteRingFirstPage",
+					"target": [
+						"RingFirstPage"
+					]
+				},
+				{
+					"name": "RouteRingSecondPage",
+					"pattern": "RouteRingSecondPage",
+					"target": [
+						"RingSecondPage"
+					]
+				}
+			],
 			"targets": {
 				"TargetHome": {
 					"viewType": "XML",
@@ -104,17 +106,13 @@
 					"viewId": "Home",
 					"viewName": "Home"
 				},
-				"LabelView1": {
+				"RingSecondPage": {
 					"viewType": "XML",
-					"viewName": "LabelView1"
+					"viewName": "RingSecondPage"
 				},
-				"LabelView2": {
+				"RingFirstPage": {
 					"viewType": "XML",
-					"viewName": "LabelView2"
-				},
-				"SuccessView": {
-					"viewType": "XML",
-					"viewName": "SuccessView"
+					"viewName": "RingFirstPage"
 				}
 			}
 		}
