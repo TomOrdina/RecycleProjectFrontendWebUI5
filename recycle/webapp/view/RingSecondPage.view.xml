@@ -6,7 +6,7 @@
 	xmlns:l="sap.ui.layout"
 	xmlns:f="sap.ui.layout.form">
 
-<l:VerticalLayout>
+<l:VerticalLayout width="100%">
 	<l:content>
 		<FlexBox
 			alignItems="Center"
@@ -23,10 +23,10 @@
 			                	<core:Item key="2" text="B"/>
 			                	<core:Item key="3" text="C"/>
 			                </ComboBox>
-			                <Button id="codeSubmit" text="{i18n>labelButtonContinue}" width="340px"/>
+			                <Button id="codeSubmit" text="{i18n>labelButtonContinue}" width="250px"/>
 	                	</f:SimpleForm>
-						<Text text="{i18n>problemsHome}" class="sapUiSmallMargin"/>
-						<Link text="{i18n>linkHome}" target="_blank" href="#" class="sapUiSmallMarginBottom underline"/>
+						<Text text="{i18n>problemsHome}" class="sapUiSmallMargin"></Text>
+						<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline"/>
 				</items>
 		</FlexBox>
 	</l:content>

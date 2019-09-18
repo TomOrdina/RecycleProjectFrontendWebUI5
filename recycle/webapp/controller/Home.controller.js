@@ -10,9 +10,14 @@ sap.ui.define([
 		
 		},
 
-		onPress: function (oEvent) {
+		onPressRing: function (oEvent) {
 			var oRouter = UIComponent.getRouterFor(this);
 			oRouter.navTo("RouteRingFirstPage");
+		},
+
+		onPressLabel: function (oEvent) {
+			var oRouter = UIComponent.getRouterFor(this);
+			oRouter.navTo("RouteLabelFirstPage");
 		}
 	});
 

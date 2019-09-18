@@ -6,7 +6,7 @@
 	xmlns:l="sap.ui.layout"
 	xmlns:f="sap.ui.layout.form">
 
-<l:VerticalLayout>
+<l:VerticalLayout width="100%">
 	<l:content>
 		<FlexBox
 			alignItems="Center"
@@ -21,20 +21,20 @@
 								direction="Column">
 									<items>
 						                <Label text="{i18n>RingSecondIdentifier}"/>
-						            	<ComboBox placeholder="{i18n>RingSecondSelectColor}" width="340px">
+						            	<ComboBox placeholder="{i18n>RingSecondSelectColor}" width="250px">
 						                	<core:Item key="1" text="{i18n>red}"/>
 						                	<core:Item key="2" text="{i18n>black}"/>
 						                	<core:Item key="3" text="{i18n>blue}"/>
 						                </ComboBox>
 						                <Text text="{i18n>headerRingFirstNumber}" class="sapUiSmallMargin header"/>
 						                <Label text="{i18n>RingSecondNumber}"/>
-						                <Input id="number" class="sapUiSmallMargin" width="340px"/>
-						                <Button id="codeSubmit" text="{i18n>labelButtonContinue}" width="340px" press=".onPress" class="sapUiSmallMargin"/>
+						                <Input id="number" class="sapUiSmallMargin" width="250px"/>
+						                <Button id="codeSubmit" text="{i18n>labelButtonContinue}" width="250px" press=".onPress" class="sapUiSmallMargin"/>
 						             </items>
 							</FlexBox>
 	                	</f:SimpleForm>
-						<Text text="{i18n>problemsHome}" class="sapUiSmallMargin"/>
-						<Link text="{i18n>linkHome}" target="_blank" href="#" class="sapUiSmallMarginBottom underline"/>
+						<Text text="{i18n>problemsHome}" class="sapUiSmallMargin"></Text>
+						<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline"/>
 				</items>
 		</FlexBox>
 	</l:content>

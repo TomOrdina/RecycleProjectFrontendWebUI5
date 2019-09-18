@@ -23,11 +23,11 @@
 													<Image src="images/Ring.PNG" alt="Ring example" width="140px" class="sapUiSmallMargin"></Image>
 											</l:HorizontalLayout>
 											<Text text="{i18n>objectSelection}" class="sapUiSmallMargin bold"></Text>
-											<Button text="{i18n>labelbuttonlabel}" width="340px"></Button>
-											<Button text="{i18n>labelButtonRing}" width="340px" press=".onPress"></Button>
+											<Button text="{i18n>labelbuttonlabel}" width="340px" press=".onPressLabel"></Button>
+											<Button text="{i18n>labelButtonRing}" width="340px" press=".onPressRing"></Button>
 											
 											<Text text="{i18n>problemsHome}" class="sapUiSmallMargin"></Text>
-											<Link text="{i18n>linkHome}" target="_blank" href="#" class="sapUiSmallMarginBottom underline"></Link>
+											<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline"/>
 									</items>
 							</FlexBox>
 						</l:VerticalLayout>

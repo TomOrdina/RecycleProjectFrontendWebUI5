@@ -96,6 +96,27 @@
 					"target": [
 						"RingSecondPage"
 					]
+				},
+				{
+					"name": "RouteLabelFirstPage",
+					"pattern": "RouteLabelFirstPage",
+					"target": [
+						"LabelFirstPage"
+					]
+				},
+				{
+					"name": "RouteLabelSecondPage",
+					"pattern": "RouteLabelSecondPage",
+					"target": [
+						"LabelSecondPage"
+					]
+				},
+				{
+					"name": "Succes",
+					"pattern": "Succes",
+					"target": [
+						"SuccesView"
+					]
 				}
 			],
 			"targets": {
@@ -113,6 +134,18 @@
 				"RingFirstPage": {
 					"viewType": "XML",
 					"viewName": "RingFirstPage"
+				},
+				"LabelFirstPage": {
+					"viewType": "XML",
+					"viewName": "LabelFirstPage"
+				},
+				"LabelSecondPage": {
+					"viewType": "XML",
+					"viewName": "LabelSecondPage"
+				},
+				"SuccesView": {
+					"viewType": "XML",
+					"viewName": "SuccesView"
 				}
 			}
 		}
