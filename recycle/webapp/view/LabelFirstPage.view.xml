@@ -1,0 +1,28 @@
+<mvc:View 
+	controllerName="opensap.recycle.controller.LabelFirstPage" 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form">
+	
+	<l:VerticalLayout width="100%">
+		<l:content>
+			<FlexBox alignItems="Center" justifyContent="Center" direction="Column">
+				<items>
+					<Text text="{i18n>LabelCode}" class="sapUiSmallMargin header"/>
+					<Text text="{i18n>LabelFindCode}" class="sapUiSmallMargin"/>
+					<Image src="images/LabelConfirmation1.png" width="250px" tooltip="label confirmation" class="spacingBetweenTextAndImage"/>
+					<Text text="{i18n>LabelWarningMessage}" class="sapUiSmallMargin" textAlign="Center"/>
+				</items>
+				<f:SimpleForm>
+					<Label text="{i18n>LabelCodelbl}" labelFor="CodeLabel" class="bold"/>
+					<Input id="name" value="{i18n>LabelCodeInput}"/>
+					<Button id="codeSubmit" text="{i18n>LabelButtonContinue}" press=".onPress"/>
+				</f:SimpleForm>
+				<Text text="{i18n>problemsHome}" class="sapUiSmallMarginBottom"></Text>
+				<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline"/>
+			</FlexBox>
+		</l:content>
+	</l:VerticalLayout>
+</mvc:View>
