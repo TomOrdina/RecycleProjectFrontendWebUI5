@@ -17,7 +17,7 @@
 				</items>
 				<f:SimpleForm>
 					<Label text="{i18n>LabelCodelbl}" labelFor="CodeLabel" class="bold"/>
-					<Input id="name" value="{i18n>LabelCodeInput}"/>
+					<Input id="name" placeholder="{i18n>LabelCodeInput}" maxLength="4"/>
 					<Button id="codeSubmit" text="{i18n>LabelButtonContinue}" press=".onPress"/>
 				</f:SimpleForm>
 				<Text text="{i18n>problemsHome}" class="sapUiSmallMarginBottom"></Text>
