@@ -1,7 +1,7 @@
 /* Enter your custom styles here */
 
 .header {
-	font-size:20px;
+	font-size:6vw;
 }
 
 .bold {
@@ -11,70 +11,18 @@
 .underline {
 	text-decoration: underline;
 }
+.fontSize {
+	font-size: 4vw;
+}
 
-.buttonFullScreen {
-    width:1200px;
-    padding: 10px 10px 10px 10px;
-    margin: 10px 0px 10px 0px;
-}
-.spacingBetweenText { 
-    margin: 0px 0px 40px 0px;
+.test { font-size: 2em; }
+
+
+@media screen and (max-width: 320px) {
     
 }
-.spacingBetweenTextAndButton {
-        margin: 0px 0px 15px 0px;
-    
-}
-.spacingBetweenTextAndImage {
-        margin: 0px 0px 15px 0px;
-    
-}
+
 @media screen and (max-width: 992px){
 
- 
+}
 
-    .buttonFullScreen {
-        width:750px;
-        padding: 10px 10px 10px 10px;
-        margin: 10px 0px 10px 0px;
-    }
-    .spacingBetweenText { 
-        margin: 0px 0px 40px 0px;
-        
-    }
-    .spacingBetweenTextAndHeader { 
-        margin: 30px 0px 30px 0px;
-        
-    }
-    .spacingBetweenTextAndButton {
-            margin: 0px 0px 15px 0px;
-        
-    }
-    .spacingBetweenTextAndImage {
-            margin: 0px 0px 15px 0px;
-        
-    }
-}
-@media screen and (max-width: 600px) {
-        .buttonFullScreen {
-        width:400px;
-        padding: 10px 10px 10px 10px;
-        margin: 10px 0px 10px 0px;
-    }
-    .spacingBetweenText { 
-        margin: 0px 0px 40px 0px;
-        
-    }
-    .spacingBetweenTextAndHeader { 
-        margin: 30px 0px 30px 0px;
-        
-    }
-    .spacingBetweenTextAndButton {
-            margin: 0px 0px 15px 0px;
-        
-    }
-    .spacingBetweenTextAndImage {
-            margin: 0px 0px 15px 0px;
-        
-    }
-}

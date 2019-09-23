@@ -7,33 +7,27 @@
 	
 	<Shell id="shell">
 		<App id="app">
-			<pages>
-				<Page id="page" title="{i18n>title}">
-					<content>
-						<l:VerticalLayout>
-							<FlexBox
-								alignItems="Center"
-								justifyContent="Center"
-								direction="Column">
-									<items>
-											<Text text="{i18n>header}" class="sapUiSmallMargin header"></Text>
-											<Text text="{i18n>paraHome}" class="sapUiSmallMargin"></Text>
-											<l:HorizontalLayout>
-													<Image src="images/Label.PNG" alt="Label example" width="140px" class="sapUiSmallMargin"></Image>
-													<Image src="images/Ring.PNG" alt="Ring example" width="140px" class="sapUiSmallMargin"></Image>
-											</l:HorizontalLayout>
-											<Text text="{i18n>objectSelection}" class="sapUiSmallMargin bold"></Text>
-											<Button text="{i18n>labelbuttonlabel}" width="340px" press=".onPressLabel"></Button>
-											<Button text="{i18n>labelButtonRing}" width="340px" press=".onPressRing"></Button>
-											
-											<Text text="{i18n>problemsHome}" class="sapUiSmallMargin"></Text>
-											<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline"/>
-									</items>
-							</FlexBox>
-						</l:VerticalLayout>
-					</content>
-				</Page>
-			</pages>
+			<l:VerticalLayout width="100%" class="sapUiResponsiveContentPadding">
+				<FlexBox
+					alignItems="Center"
+					justifyContent="Center"
+					direction="Column">
+						<items>
+								<Text text="{i18n>header}" class="sapUiSmallMargin header"></Text>
+								<Text text="{i18n>paraHome}" class="sapUiSmallMargin fontSize"></Text>
+								<l:HorizontalLayout>
+										<Image src="images/Label.PNG" alt="Label example" width="30vw" class="sapUiSmallMargin"></Image>
+										<Image src="images/Ring.PNG" alt="Ring example" width="30vw" class="sapUiSmallMargin"></Image>
+								</l:HorizontalLayout>
+								<Text text="{i18n>objectSelection}" class="sapUiSmallMargin bold fontSize"></Text>
+								<Button text="{i18n>labelbuttonlabel}" width="80vw" press=".onPressLabel" class="fontSize" ></Button>
+								<Button text="{i18n>labelButtonRing}" width="80vw" press=".onPressRing"></Button>
+								
+								<Text text="{i18n>problemsHome}" class="sapUiSmallMargin fontSize"></Text>
+								<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline fontSize"/>
+						</items>
+				</FlexBox>
+			</l:VerticalLayout>
 		</App>
 	</Shell>
 </mvc:View>

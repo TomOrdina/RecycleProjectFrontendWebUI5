@@ -1,4 +1,3 @@
-
 <mvc:View 
 	controllerName="opensap.recycle.controller.SuccesView"
 	xmlns:core="sap.ui.core" 
@@ -11,14 +10,14 @@
     <l:content>
         <FlexBox alignItems="Center" justifyContent="Center" direction="Column">
             <items>
-                <Text text="{i18n>ThankYouText}" class="sapUiTinyMargin headerLabel"/>
-                <Text text="{i18n>InformationRecieved}" class=" headerLabel spacingBetweenText"/>
-                <Text text="{i18n>ShareLocationNotBold}" />
-                <Text text="{i18n>ShareLocationBold}" class="textBold spacingBetweenTextAndButton"/>
-                <Button id="ShareSubmit" text="{i18n>ShareButtonText}"  class="buttonFullScreen" />
-                    <Button id="NoLocationSubmit" text="{i18n>NoLocationButtonText}"  class="buttonFullScreen spacingBetweenTextAndButton"/>
-                <Text text="{i18n>LocationExplanationText}" class="sapUiSmallMargin"/>
-                <Text text="{i18n>ExtraInfoLocationText}" class="sapUiSmallMargin textBold"/>
+                <Text text="{i18n>ThankYouText}" class="sapUiTinyMargin header"/>
+                <Text text="{i18n>InformationRecieved}" class=" headerLabel sapUiSmallMargin fontSize"/>
+                <Text text="{i18n>ShareLocationNotBold}" class="sapUiSmallMargin fontSize" />
+                <Text text="{i18n>ShareLocationBold}" class="textBold sapUiSmallMargin fontSize"/>
+                <Button id="ShareSubmit" text="{i18n>ShareButtonText}" width="80vw"/>
+                <Button id="NoLocationSubmit" text="{i18n>NoLocationButtonText}" width="80vw"  class="sapUiSmallMargin"/>
+                <Text text="{i18n>LocationExplanationText}" class="sapUiSmallMargin fontSize"/>
+                <Text text="{i18n>ExtraInfoLocationText}" class="sapUiSmallMargin textBold fontSize"/>
             </items>
             </FlexBox>
         </l:content>
