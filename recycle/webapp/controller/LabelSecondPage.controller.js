@@ -1,6 +1,9 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/core/UIComponent",
+	"sap/m/MessageToast",
+    "jquery.sap.storage"
+], function (Controller, UIComponent, MessageToast, storage) {
 	"use strict";
 
 	return Controller.extend("opensap.recycle.controller.LabelSecondPage", {
@@ -14,32 +17,22 @@ sap.ui.define([
 
 		},
 
-		/**
-		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
-		 * (NOT before the first rendering! onInit() is used for that one!).
-		 * @memberOf opensap.recycle.view.LabelSecondPage
-		 */
-		//	onBeforeRendering: function() {
-		//
-		//	},
-
-		/**
-		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
-		 * This hook is the same one that SAPUI5 controls get after being rendered.
-		 * @memberOf opensap.recycle.view.LabelSecondPage
-		 */
-		//	onAfterRendering: function() {
-		//
-		//	},
-
-		/**
-		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-		 * @memberOf opensap.recycle.view.LabelSecondPage
-		 */
-		//	onExit: function() {
-		//
-		//	}
-
+		onPress: function (oEvent) {
+			
+			var sMessage = this.getView().getModel("i18n").getResourceBundle().getText("failCombo");
+			var sValue = this.getView().byId("comboValue").getSelectedKey();
+			
+			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+			
+			if(sValue) {
+				oStorage.put("Identifier", sValue);
+				var oRouter = UIComponent.getRouterFor(this);
+				oRouter.navTo("Succes");
+			} else {
+				sap.m.MessageToast.show(sMessage, {duration: 3500});
+			}
+		}
+			
 	});
 
 });

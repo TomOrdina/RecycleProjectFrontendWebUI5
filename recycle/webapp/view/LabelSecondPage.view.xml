@@ -11,21 +11,25 @@
 			<FlexBox alignItems="Center" justifyContent="Center" direction="Column">
 				<items>
 					<Text text="{i18n>LabelIdentifier}" class="sapUiSmallMargin header"/>
-					<Text text="{i18n>LabelFindIdentifier}" class="sapUiSmallMargin"/>
-					<Image src="images/LabelConfirmation2.png" width="250px" tooltip="label confirmation" class="spacingBetweenTextAndImage"/>
-					<Text text="{i18n>LabelWarningMessage2}" class="sapUiTinyMargin" textAlign="Center"/>
+					<Text text="{i18n>LabelFindIdentifier}" class="sapUiSmallMargin fontSize"/>
+					<Image src="images/LabelConfirmation2.png" width="60vw" tooltip="label confirmation" class="sapUiSmallMargin"/>
+					<Text text="{i18n>LabelWarningMessage2}" class="sapUiTinyMargin fontSize" textAlign="Center"/>
 				</items>
 				<f:SimpleForm>
-					<Label text="{i18n>LabelIdentifierlbl}" labelFor="CodeLabel" design="Bold"/>
-					<ComboBox width="250px">
-						<core:Item key="1" text="I"/>
-						<core:Item key="2" text="II"/>
-						<core:Item key="3" text="III"/>
-					</ComboBox>
-					<Button id="codeSubmit" text="{i18n>LabelButtonContinue}"/>
+					<FlexBox alignItems="Center" justifyContent="Center" direction="Column">
+						<items>
+							<Label text="{i18n>LabelIdentifierlbl}" labelFor="CodeLabel" design="Bold" class="fontSize"/>
+							<ComboBox id="comboValue" width="80vw">
+								<core:Item key="1" text="I"/>
+								<core:Item key="2" text="II"/>
+								<core:Item key="3" text="III"/>
+							</ComboBox>
+							<Button id="codeSubmit" text="{i18n>LabelButtonContinue}" press=".onPress" width="80vw"/>							
+						</items>
+					</FlexBox>
 				</f:SimpleForm>
-				<Text text="{i18n>problemsHome}" class="sapUiSmallMargin"></Text>
-				<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline"/>
+				<Text text="{i18n>problemsHome}" class="sapUiSmallMargin fontSize"></Text>
+				<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline fontSize"/>
 			</FlexBox>
 		</l:content>
 	</l:VerticalLayout>

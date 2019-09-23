@@ -14,14 +14,13 @@ sap.ui.define([
 		 * @memberOf opensap.recycle.view.LabelFirstPage
 		 */
 		onInit: function () {
-
 		},
 
 		onPress: function (oEvent) {
 			
 			var sMessage = this.getView().getModel("i18n").getResourceBundle().getText("fail");
 			var sValue = this.getView().byId("name").getValue();
-			var isColCorrect, isNumCorrect,sColor, nNumber;
+			var isColCorrect, isNumCorrect, sColor, nNumber;
 			
 			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 			
@@ -46,13 +45,13 @@ sap.ui.define([
 					oStorage.put("Color", sColor);
 					oStorage.put("CodeNumber", nNumber);
 					
-				//	var oRouter = UIComponent.getRouterFor(this);
-				//	oRouter.navTo("RouteLabelSecondPage");
+					var oRouter = UIComponent.getRouterFor(this);
+					oRouter.navTo("RouteLabelSecondPage");
 				} else {
-				sap.m.MessageToast.show(sMessage);
+				sap.m.MessageToast.show(sMessage, {duration: 3500});
 				}
 			} else {
-				sap.m.MessageToast.show(sMessage);
+				sap.m.MessageToast.show(sMessage, {duration: 3500});
 			}
 		}
 
