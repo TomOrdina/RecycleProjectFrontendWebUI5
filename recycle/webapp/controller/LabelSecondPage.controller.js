@@ -20,7 +20,7 @@ sap.ui.define([
 		onPress: function (oEvent) {
 			
 			var sMessage = this.getView().getModel("i18n").getResourceBundle().getText("failCombo");
-			var sValue = this.getView().byId("comboValue").getSelectedKey();
+			var sValue = this.getView().byId("comboValue").getValue();
 			
 			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 			

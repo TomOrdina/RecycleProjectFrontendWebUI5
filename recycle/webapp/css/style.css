@@ -17,6 +17,7 @@
 
 .test { font-size: 2em; }
 
+.red { color: #d90e00; }
 
 @media screen and (max-width: 320px) {
     
@@ -25,4 +26,3 @@
 @media screen and (max-width: 992px){
 
 }
-

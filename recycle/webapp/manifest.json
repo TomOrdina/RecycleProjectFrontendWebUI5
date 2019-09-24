@@ -117,6 +117,13 @@
 					"target": [
 						"SuccesView"
 					]
+				},
+				{
+					"name": "Error",
+					"pattern": "Error",
+					"target": [
+						"ErrorView"
+					]
 				}
 			],
 			"targets": {
@@ -146,6 +153,10 @@
 				"SuccesView": {
 					"viewType": "XML",
 					"viewName": "SuccesView"
+				},
+				"ErrorView": {
+					"viewType": "XML",
+					"viewName": "Error"
 				}
 			}
 		}

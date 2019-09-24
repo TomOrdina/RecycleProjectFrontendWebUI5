@@ -49,7 +49,7 @@ sap.ui.define([
 				oStorage.put("CodeNumber", sValueNum);
 				
 				var oRouter = UIComponent.getRouterFor(this);
-				oRouter.navTo("RouteLabelSecondPage");
+				oRouter.navTo("RouteRingSecondPage");
 			}
 			
 		}

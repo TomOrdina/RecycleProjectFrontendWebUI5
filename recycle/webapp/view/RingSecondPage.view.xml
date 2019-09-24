@@ -19,9 +19,9 @@
 						<f:SimpleForm>
 			                <Label text="{i18n>RingSecondIdentifier}"/>
 			            	<ComboBox id="identifierRing" placeholder="{i18n>RingSecondSelect}" class="80vw">
-			                	<core:Item key="1" text="A"/>
-			                	<core:Item key="2" text="B"/>
-			                	<core:Item key="3" text="C"/>
+			                	<core:Item key="I" text="A"/>
+			                	<core:Item key="II" text="B"/>
+			                	<core:Item key="III" text="C"/>
 			                </ComboBox>
 			                <Button id="codeSubmit" text="{i18n>labelButtonContinue}" width="80vw" press=".onPress" />
 	                	</f:SimpleForm>
