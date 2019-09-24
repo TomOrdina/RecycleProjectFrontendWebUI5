@@ -15,7 +15,7 @@
         <Text text="waarde 2 binding" class="textBold sapUiSmallMargin"/>
         <FlexBox alignItems="Center" justifyContent="Center" direction="Column">
             <items>
-                <HBox id="map_canvas" width="80vw"></HBox>
+                <HBox id="map_canvas" width="80vw" height="41vh"></HBox>
                 <Button id="ShareSubmit" text="{i18n>backButton}" width="80vw" press="onPressBack"/>
                 <Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>backUnable}" class="sapUiSmallMargin textBold fontSize underline"/>
             </items>
