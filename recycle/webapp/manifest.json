@@ -124,6 +124,20 @@
 					"target": [
 						"ErrorView"
 					]
+				},
+				{
+					"name": "SendLocation",
+					"pattern": "SendLocation",
+					"target": [
+						"SendLocation"
+					]
+				},
+				{
+					"name": "ItemBack",
+					"pattern": "ItemBack",
+					"target": [
+						"ItemBack"
+					]
 				}
 			],
 			"targets": {
@@ -157,6 +171,14 @@
 				"ErrorView": {
 					"viewType": "XML",
 					"viewName": "Error"
+				},
+				"SendLocation": {
+					"viewType": "XML",
+					"viewName": "SendLocation"
+				},
+				"ItemBack": {
+					"viewType": "XML",
+					"viewName": "ItemBack"
 				}
 			}
 		}

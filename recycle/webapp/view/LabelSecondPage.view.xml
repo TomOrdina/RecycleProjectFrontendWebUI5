@@ -19,10 +19,10 @@
 					<FlexBox alignItems="Center" justifyContent="Center" direction="Column">
 						<items>
 							<Label text="{i18n>LabelIdentifierlbl}" labelFor="CodeLabel" design="Bold" class="fontSize"/>
-							<ComboBox id="comboValue" width="80vw">
-								<core:Item key="1" text="I"/>
-								<core:Item key="2" text="II"/>
-								<core:Item key="3" text="III"/>
+							<ComboBox id="comboValue" width="80vw" change=".onChange">
+								<core:Item key="I" text="I"/>
+								<core:Item key="II" text="II"/>
+								<core:Item key="III" text="III"/>
 							</ComboBox>
 							<Button id="codeSubmit" text="{i18n>LabelButtonContinue}" press=".onPress" width="80vw"/>							
 						</items>

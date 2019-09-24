@@ -1,29 +1,23 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller",
-	"sap/ui/core/UIComponent"
-], function (Controller, UIComponent) {
+	"sap/ui/core/mvc/Controller"
+], function (Controller) {
 	"use strict";
 
-	return Controller.extend("opensap.recycle.controller.SuccesView", {
+	return Controller.extend("opensap.recycle.controller.ItemBack", {
 
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
 		 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
-		 * @memberOf opensap.recycle.view.SuccesView
+		 * @memberOf opensap.recycle.view.ItemBack
 		 */
 		onInit: function () {
 
-		},
-
-		onPressError: function (oEvent) {
-			var oRouter = UIComponent.getRouterFor(this);
-			oRouter.navTo("SendLocation");
 		}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
 		 * (NOT before the first rendering! onInit() is used for that one!).
-		 * @memberOf opensap.recycle.view.SuccesView
+		 * @memberOf opensap.recycle.view.ItemBack
 		 */
 		//	onBeforeRendering: function() {
 		//
@@ -32,7 +26,7 @@ sap.ui.define([
 		/**
 		 * Called when the View has been rendered (so its HTML is part of the document). Post-rendering manipulations of the HTML could be done here.
 		 * This hook is the same one that SAPUI5 controls get after being rendered.
-		 * @memberOf opensap.recycle.view.SuccesView
+		 * @memberOf opensap.recycle.view.ItemBack
 		 */
 		//	onAfterRendering: function() {
 		//
@@ -40,7 +34,7 @@ sap.ui.define([
 
 		/**
 		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-		 * @memberOf opensap.recycle.view.SuccesView
+		 * @memberOf opensap.recycle.view.ItemBack
 		 */
 		//	onExit: function() {
 		//

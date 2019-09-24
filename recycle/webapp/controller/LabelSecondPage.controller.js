@@ -16,11 +16,18 @@ sap.ui.define([
 		onInit: function () {
 
 		},
+		
+		onChange: function () {
+		/*	var sValueCheck = this.getView().byId("comboValue").getSelectedKey().toUpperCase();
+			if(!sValueCheck === "I" | !sValueCheck === "II" | !sValueCheck === "III"){
+				this.getView().byId("comboValue").clearSelection();
+			}*/
+		},
 
 		onPress: function (oEvent) {
 			
 			var sMessage = this.getView().getModel("i18n").getResourceBundle().getText("failCombo");
-			var sValue = this.getView().byId("comboValue").getValue();
+			var sValue = this.getView().byId("comboValue").getSelectedKey();
 			
 			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 			

@@ -14,7 +14,7 @@
                 <Text text="{i18n>InformationRecieved}" class=" headerLabel sapUiSmallMargin fontSize"/>
                 <Text text="{i18n>ShareLocationNotBold}" class="sapUiSmallMargin fontSize" />
                 <Text text="{i18n>ShareLocationBold}" class="textBold sapUiSmallMargin fontSize"/>
-                <Button id="ShareSubmit" text="{i18n>ShareButtonText}" width="80vw"/>
+                <Button id="ShareSubmit" text="{i18n>ShareButtonText}" width="80vw" press="onPressError"/>
                 <Button id="NoLocationSubmit" text="{i18n>NoLocationButtonText}" width="80vw"  class="sapUiSmallMargin"/>
                 <Text text="{i18n>LocationExplanationText}" class="sapUiSmallMargin fontSize"/>
                 <Text text="{i18n>ExtraInfoLocationText}" class="sapUiSmallMargin textBold fontSize"/>
