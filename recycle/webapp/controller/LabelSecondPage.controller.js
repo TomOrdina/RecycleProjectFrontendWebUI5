@@ -34,7 +34,36 @@ sap.ui.define([
 			if(sValue) { // navigates to a different page ONLY if a value is selected
 				oStorage.put("Identifier", sValue); //  puts values in local storage
 				var oRouter = UIComponent.getRouterFor(this); // gets router
-				oRouter.navTo("Succes"); // navigates to a page
+			
+				
+			var Color = oStorage.get("Color");
+			var CodeNumber = oStorage.get("CodeNumber");
+			var Identifier = oStorage.get("Identifier");
+			var dataobjectsend = ""+Color+"-"+CodeNumber+"-"+Identifier; 
+			var weburl = "http://localhost:8081/asset?referenceId="+dataobjectsend; 
+			
+			$.ajax({
+
+					url: weburl,
+					type: "GET",
+					dataType: "json",
+					success: function(dataj){
+						var datareturned = JSON.stringify(dataj.correlationAssetId);
+						var correlationAssetId = datareturned.substring(1,datareturned.length - 1);
+
+						oStorage.put("correlationId", correlationAssetId);
+					//sap.m.MessageBox.show("msgbox before route");
+						// navigates to a page
+					oRouter.navTo("Succes");
+					
+					},
+					error: function(){
+						sap.m.MessageBox.show("The data could not have been received.");
+							// navigates to a page
+							oRouter.navTo("Error");
+					
+					}
+				});
 			} else {
 				sap.m.MessageToast.show(sMessage, {duration: 3500}); // error message if no value is entered
 			}
