@@ -16,27 +16,27 @@ sap.ui.define([
 		onInit: function () {
 
 		},
-		
-		onChange: function () {
-		/*	var sValueCheck = this.getView().byId("comboValue").getSelectedKey().toUpperCase();
-			if(!sValueCheck === "I" | !sValueCheck === "II" | !sValueCheck === "III"){
-				this.getView().byId("comboValue").clearSelection();
-			}*/
-		},
-
-		onPress: function (oEvent) {
+		/*
+			onChange: function () {
+				var sValueCheck = this.getView().byId("comboValue").getSelectedKey().toUpperCase();
+				if(!sValueCheck === "I" | !sValueCheck === "II" | !sValueCheck === "III"){
+					this.getView().byId("comboValue").clearSelection();
+				}
+			},
+		*/
+		onPress: function (oEvent) { 
 			
-			var sMessage = this.getView().getModel("i18n").getResourceBundle().getText("failCombo");
-			var sValue = this.getView().byId("comboValue").getSelectedKey();
+			var sMessage = this.getView().getModel("i18n").getResourceBundle().getText("failCombo"); // gets text from i18n model
+			var sValue = this.getView().byId("comboValue").getSelectedKey(); // gets input value from view
 			
-			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local); // creates a local storage object
 			
-			if(sValue) {
-				oStorage.put("Identifier", sValue);
-				var oRouter = UIComponent.getRouterFor(this);
-				oRouter.navTo("Succes");
+			if(sValue) { // navigates to a different page ONLY if a value is selected
+				oStorage.put("Identifier", sValue); //  puts values in local storage
+				var oRouter = UIComponent.getRouterFor(this); // gets router
+				oRouter.navTo("Succes"); // navigates to a page
 			} else {
-				sap.m.MessageToast.show(sMessage, {duration: 3500});
+				sap.m.MessageToast.show(sMessage, {duration: 3500}); // error message if no value is entered
 			}
 		}
 			

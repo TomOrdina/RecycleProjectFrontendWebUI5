@@ -14,7 +14,7 @@ sap.ui.define([
 		onInit: function () {
 
 		},
-
+		// navigates to a different page
 		onPressError: function (oEvent) {
 			var oRouter = UIComponent.getRouterFor(this);
 			oRouter.navTo("SendLocation");

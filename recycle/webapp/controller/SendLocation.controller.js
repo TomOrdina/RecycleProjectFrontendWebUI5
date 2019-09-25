@@ -13,7 +13,7 @@ sap.ui.define([
 		onInit: function () {
 
 		},
-		
+		// navigates to a different page
 		onPressSend : function (oEvent) {
 			var oRouter = UIComponent.getRouterFor(this);
 			oRouter.navTo("ItemBack");
