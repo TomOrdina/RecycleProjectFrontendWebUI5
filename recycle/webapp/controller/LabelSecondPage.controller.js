@@ -39,7 +39,7 @@ sap.ui.define([
 			var Color = oStorage.get("Color");
 			var CodeNumber = oStorage.get("CodeNumber");
 			var Identifier = oStorage.get("Identifier");
-			var dataobjectsend = ""+Color+"-"+CodeNumber+"-"+Identifier; 
+			var dataobjectsend = Color+"-"+CodeNumber+"-"+Identifier; 
 			var weburl = "http://localhost:8081/asset?referenceId="+dataobjectsend; 
 			
 			$.ajax({
