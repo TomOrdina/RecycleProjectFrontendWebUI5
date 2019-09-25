@@ -138,6 +138,13 @@
 					"target": [
 						"ItemBack"
 					]
+				},
+				{
+					"name": "AwayLocation",
+					"pattern": "AwayLocation",
+					"target": [
+						"AwayLocation"	
+					]
 				}
 			],
 			"targets": {
@@ -179,6 +186,10 @@
 				"ItemBack": {
 					"viewType": "XML",
 					"viewName": "ItemBack"
+				},
+				"AwayLocation": {
+					"viewType": "XML",
+					"viewName": "AwayLocation"
 				}
 			}
 		}

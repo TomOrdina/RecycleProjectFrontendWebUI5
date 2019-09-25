@@ -3,7 +3,7 @@ sap.ui.define([
 ], function (Controller) {
 	"use strict";
 	
-	var map, longitude, latitude, markerVectorLayer;
+	var map, longitude, latitude;
 	
 	return Controller.extend("opensap.recycle.controller.ItemBack", {
 
@@ -61,9 +61,6 @@ sap.ui.define([
 						map.getView().setCenter(ol.proj.transform([longitude, latitude], 'EPSG:4326', 'EPSG:3857'));
 						map.getView().setZoom(15);
 						
-						// If there is already a maker (= layer), delete it as only one marker is allowed
-						map.removeLayer(markerVectorLayer);
-						
 						// Create a marker (= feature) which references to the location of the user
 						var marker = new ol.Feature({
 								geometry: new ol.geom.Point(
@@ -84,7 +81,7 @@ sap.ui.define([
 						});
 							
 						// Create layer based on a vector	
-						markerVectorLayer = new ol.layer.Vector({
+						var markerVectorLayer = new ol.layer.Vector({
 							source: vectorSource,
 						});
 						
