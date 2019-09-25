@@ -46,14 +46,12 @@ sap.ui.define([
 						var correlationAssetId = datareturned.substring(1,datareturned.length - 1);
 
 						oStorage.put("correlationId", correlationAssetId);
-					//sap.m.MessageBox.show("msgbox before route");
-						// navigates to a page
+					// navigates to a page
 					oRouter.navTo("Succes");
 					
 					},
 					error: function(){
-						sap.m.MessageBox.show("The data could not have been received.");
-							// navigates to a page
+						// navigates to a page
 							oRouter.navTo("Error");
 					
 					}
