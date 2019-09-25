@@ -19,6 +19,8 @@
 
 .red { color: #d90e00; }
 
+#map_canvas { background-color: green; }
+
 @media screen and (max-width: 320px) {
     
 }

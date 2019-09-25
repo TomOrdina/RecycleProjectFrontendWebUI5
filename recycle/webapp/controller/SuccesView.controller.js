@@ -1,6 +1,7 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/core/UIComponent"
+], function (Controller, UIComponent) {
 	"use strict";
 
 	return Controller.extend("opensap.recycle.controller.SuccesView", {
@@ -13,6 +14,16 @@ sap.ui.define([
 		onInit: function () {
 
 		},
+		// navigates to a different page
+		sendLocation: function (oEvent) {
+			var oRouter = UIComponent.getRouterFor(this);
+			oRouter.navTo("SendLocation");
+		},
+		
+		awayLocation: function (oEvent) {
+			var oRouter = UIComponent.getRouterFor(this);
+			oRouter.navTo("AwayLocation");
+		}
 
 		/**
 		 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered

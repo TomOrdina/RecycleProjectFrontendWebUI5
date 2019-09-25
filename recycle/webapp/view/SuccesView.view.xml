@@ -7,18 +7,18 @@
 	xmlns:f="sap.ui.layout.form" >
 
     <l:VerticalLayout width="100%">
-    <l:content>
-        <FlexBox alignItems="Center" justifyContent="Center" direction="Column">
-            <items>
-                <Text text="{i18n>ThankYouText}" class="sapUiTinyMargin header"/>
-                <Text text="{i18n>InformationRecieved}" class=" headerLabel sapUiSmallMargin fontSize"/>
-                <Text text="{i18n>ShareLocationNotBold}" class="sapUiSmallMargin fontSize" />
-                <Text text="{i18n>ShareLocationBold}" class="textBold sapUiSmallMargin fontSize"/>
-                <Button id="ShareSubmit" text="{i18n>ShareButtonText}" width="80vw"/>
-                <Button id="NoLocationSubmit" text="{i18n>NoLocationButtonText}" width="80vw"  class="sapUiSmallMargin"/>
-                <Text text="{i18n>LocationExplanationText}" class="sapUiSmallMargin fontSize"/>
-                <Text text="{i18n>ExtraInfoLocationText}" class="sapUiSmallMargin textBold fontSize"/>
-            </items>
+    	<l:content>
+    		<FlexBox alignItems="Center" justifyContent="Center" direction="Column">
+	            <items>
+	                <Text text="{i18n>ThankYouText}" class="sapUiTinyMargin header"/>
+	                <Text text="{i18n>InformationRecieved}" class=" headerLabel sapUiSmallMargin fontSize"/>
+	                <Text text="{i18n>ShareLocationNotBold}" class="sapUiSmallMargin fontSize" />
+	                <Text text="{i18n>ShareLocationBold}" class="textBold sapUiSmallMargin fontSize"/>
+	                <Button id="ShareSubmit" text="{i18n>ShareButtonText}" width="80vw" press="sendLocation"/>
+	                <Button id="NoLocationSubmit" text="{i18n>NoLocationButtonText}" width="80vw" press="awayLocation" class="sapUiSmallMargin"/>
+	                <Text text="{i18n>LocationExplanationText}" class="sapUiSmallMargin fontSize"/>
+	                <Text text="{i18n>ExtraInfoLocationText}" class="sapUiSmallMargin textBold fontSize"/>
+	            </items>
             </FlexBox>
         </l:content>
     </l:VerticalLayout>
