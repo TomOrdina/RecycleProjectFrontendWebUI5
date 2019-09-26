@@ -43,11 +43,14 @@ sap.ui.define([
 				  }
 				  return i;
 				}
+		
+		//get model from data.json file
+		var oModel = this.getView().getModel("data");
 		// initialise local storage	
-		var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+		//var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 		var oRouter = UIComponent.getRouterFor(this);
 		var failedToGetLocation = this.getView().getModel("i18n").getResourceBundle().getText("failLocationAway");
-		var AssetId= oStorage.get("correlationId");
+		var AssetId= JSON.parse(oModel.getJSON()).item.correlationAssetId;
 		var today = new Date();
 		var date = today.getFullYear()+ "-" + checkTime(today.getMonth())+ "-" + checkTime(today.getDate())+"T";
 		var time = checkTime(today.getHours())+ ":" + checkTime(today.getMinutes())+ ":" + checkTime(today.getSeconds())+"Z";

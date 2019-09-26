@@ -1,5 +1,6 @@
 <mvc:View 
-	controllerName="opensap.recycle.controller.LabelSecondPage" 
+	controllerName="opensap.recycle.controller.LabelSecondPage"
+	id="test"
 	xmlns:core="sap.ui.core" 
 	xmlns:mvc="sap.ui.core.mvc" 
 	xmlns="sap.m"

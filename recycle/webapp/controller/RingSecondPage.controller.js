@@ -14,27 +14,38 @@ sap.ui.define([
 		 * @memberOf opensap.recycle.view.RingFirstPage
 		 */
 		onInit: function () {
-
 		},
 
 		onPress: function (oEvent) {
 			// gets i18n text and input value
 			var sMessage = this.getView().getModel("i18n").getResourceBundle().getText("failCombo");
 			var sValue = this.getView().byId("identifierRing").getSelectedKey().toUpperCase();
+			
+			//get model from data.json file
+			var oModel = this.getView().getModel("data");
 			// creation of local storage object
 			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 			
 			// checks if anything is entered
 			if(sValue) {
+				
+				oModel.setData({ "item": {"identifier" : sValue }}, true);
 				oStorage.put("Identifier", sValue);
+				
 				var oRouter = UIComponent.getRouterFor(this);
 				
+				var data = JSON.parse(oModel.getJSON()).item;
+				var color = data.color;
+				var number = data.number;
+				var identifier = data.identifier;
+				var dataToSend = "" + color + "-" + number + "-" + identifier; 
+				console.log(dataToSend);
 				
-			var Color = oStorage.get("Color");
-			var CodeNumber = oStorage.get("CodeNumber");
-			var Identifier = oStorage.get("Identifier");
-			var dataobjectsend = ""+Color+"-"+CodeNumber+"-"+Identifier; 
-			var weburl = "http://localhost:8081/asset?referenceId="+dataobjectsend; 
+				// var Color = oStorage.get("Color");
+				// var CodeNumber = oStorage.get("CodeNumber");
+				// var Identifier = oStorage.get("Identifier");
+				// var dataobjectsend = ""+Color+"-"+CodeNumber+"-"+Identifier; 
+				var weburl = "http://localhost:8081/asset?referenceId="+dataToSend; 
 			
 			$.ajax({
 
@@ -43,8 +54,11 @@ sap.ui.define([
 					dataType: "json",
 					success: function(dataj){
 						var datareturned = JSON.stringify(dataj.correlationAssetId);
-						var correlationAssetId = datareturned.substring(1,datareturned.length - 1);
-
+						var correlationAssetId = datareturned.substring(1,datareturned.length - 1);	
+						oModel.setData({ "item": {"correlationAssetId" : correlationAssetId }}, true);
+						
+						console.log(JSON.parse(oModel.getJSON()).item);
+						
 						oStorage.put("correlationId", correlationAssetId);
 					// navigates to a page
 					oRouter.navTo("Succes");
@@ -52,7 +66,8 @@ sap.ui.define([
 					},
 					error: function(){
 						// navigates to a page
-							oRouter.navTo("Error");
+						oRouter.navTo("Error");
+						location.reload();
 					
 					}
 				});
