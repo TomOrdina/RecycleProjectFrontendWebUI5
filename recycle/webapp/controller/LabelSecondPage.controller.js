@@ -34,7 +34,7 @@ sap.ui.define([
 			if(sValue) { // navigates to a different page ONLY if a value is selected
 				oModel.setData({ "item": {"identifier" : sValue }}, true);
 				oStorage.put("Identifier", sValue); //  puts values in local storage
-				
+				console.log(JSON.parse(oModel.getJSON()).item.identifier + "this is it");
 				var oRouter = UIComponent.getRouterFor(this); // gets router
 			
 				var data = JSON.parse(oModel.getJSON()).item;

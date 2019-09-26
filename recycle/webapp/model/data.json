@@ -2,6 +2,7 @@
 	"item" : {
 	    "color": "",
 	    "number": "",
-	    "identifier" : ""
+	    "identifier" : "",
+	    "correlationAssetId" : "888"
 	}
 }
