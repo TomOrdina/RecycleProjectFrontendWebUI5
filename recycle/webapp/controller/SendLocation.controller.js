@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/ui/core/UIComponent"
-], function (Controller, UIComponent) {
+	"sap/ui/core/UIComponent",
+	"sap/m/MessageBox"
+], function (Controller, UIComponent, MessageBox) {
 	"use strict";
 	
 	var map, longitude, latitude, markerVectorLayer;
@@ -17,7 +18,66 @@ sap.ui.define([
 		},
 		// navigates to a different page
 		onPressSend : function (oEvent) {
-			// to be implemented
+		function checkTime(i) {
+		  if (i < 10) {
+		    i = "0" + i;
+		  }
+		  return i;
+		}
+			
+		var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+		var failedSendLocation = this.getView().getModel("i18n").getResourceBundle().getText("failedSendLocation");
+		var AssetId = oStorage.get("correlationId");
+		var today = new Date();
+		var date = today.getFullYear()+ "-" + checkTime(today.getMonth())+ "-" + checkTime(today.getDate())+"T";
+		var time = checkTime(today.getHours())+ ":" + checkTime(today.getMinutes())+ ":" + checkTime(today.getSeconds())+"Z";
+		var Timestamp = date+time;
+		
+
+		
+		
+		//Create dataObject that contains AssetID , location and timestamp
+				var assetObject=  {
+							    "correlationAssetId": AssetId,
+							    "latitude": latitude,
+							    "longitude": longitude,
+							    "timestamp": Timestamp
+				                	  };
+				                	  
+				var assetObjectString=JSON.stringify(assetObject);
+				
+
+		// webLink to backend 
+		   var weblink = "http://localhost:8081/assetlocation";
+
+		   
+		// Ajax post call ( sending Id, location and timestamp)
+			$.ajax({
+			url: weblink,
+			type: "POST",
+			dataType: "json",
+			contentType: "application/json;charset=utf-8",
+	
+		// Stringify dataObject
+			data:assetObjectString
+				
+		
+			})
+			
+			
+		    .done(function (){
+					sap.m.MessageBox.show(Timestamp);
+		    	
+		    })
+		            
+		     
+		    .fail(function (){
+					sap.m.MessageBox.show(failedSendLocation);});
+			
+			
+			// var oRouter = UIComponent.getRouterFor(this);
+			// oRouter.navTo("RouteLabelSecondPage");
+			
 		},
 		
 		// renews location

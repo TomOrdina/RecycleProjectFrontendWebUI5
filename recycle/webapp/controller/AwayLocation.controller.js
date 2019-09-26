@@ -1,9 +1,10 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/m/MessageBox"
+], function (Controller, MessageBox) {
 	"use strict";
 
-	var map, markerVectorLayer;
+	var map, markerVectorLayer,glatitude,glongitude;
 	
 	return Controller.extend("opensap.recycle.controller.AwayLocation", {
 
@@ -30,6 +31,71 @@ sap.ui.define([
 		 * This hook is the same one that SAPUI5 controls get after being rendered.
 		 * @memberOf opensap.recycle.view.AwayLocation
 		 */
+		 
+		 onPressAway: function (){
+		 	
+		 	
+		 // Check if date & time value is only 1 cipher then add 0
+		function checkTime(i) {
+				  if (i < 10) {
+				    i = "0" + i;
+				  }
+				  return i;
+				}
+		// initialise local storage	
+		var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+		var failedToGetLocation = this.getView().getModel("i18n").getResourceBundle().getText("failLocationAway")
+		var AssetId= oStorage.get("correlationId");
+		var today = new Date();
+		var date = today.getFullYear()+ "-" + checkTime(today.getMonth())+ "-" + checkTime(today.getDate())+"T";
+		var time = checkTime(today.getHours())+ ":" + checkTime(today.getMinutes())+ ":" + checkTime(today.getSeconds())+"Z";
+		var Timestamp = date+time;
+		
+		//Create dataObject that contains AssetID , location and timestamp
+				var assetObject=  {
+							    "correlationAssetId": AssetId,
+							    "latitude": glatitude,
+							    "longitude": glongitude,
+							    "timestamp": Timestamp
+				                	  };
+				
+					var assetObjectString=JSON.stringify(assetObject);
+				
+
+		// webLink to backend 
+		   var weblink = "http://localhost:8081/assetlocation";
+
+		
+		// Ajax post call ( sending Id, location and timestamp)
+			$.ajax({
+			url: weblink,
+			type: "POST",
+			dataType: "json",
+			contentType: "application/json;charset=utf-8",
+	
+		// Stringify dataObject
+			data:assetObjectString
+				
+		
+			})
+			
+		    .done(function (){
+					sap.m.MessageBox.show(Timestamp);
+		    	
+		    })
+		            
+		    
+		    
+		    .fail(function (){
+					sap.m.MessageBox.show(failedToGetLocation);
+		    	
+		    });
+			
+		 	
+	},
+
+		 
+		 
 		onAfterRendering: function() {
 			var that = this;
 			
@@ -59,7 +125,8 @@ sap.ui.define([
 				var lonlat = ol.proj.transform(coor, 'EPSG:3857', 'EPSG:4326');
 				var longitude = lonlat[0];
 				var latitude = lonlat[1];
-				
+				glatitude= latitude;
+				glongitude=longitude;
 				// If there is already a maker (= layer), delete it as only one marker is allowed
 				map.removeLayer(markerVectorLayer);
 				
@@ -109,7 +176,7 @@ sap.ui.define([
 				}
 			});
 		}
-
+	
 		/**
 		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
 		 * @memberOf opensap.recycle.view.AwayLocation
