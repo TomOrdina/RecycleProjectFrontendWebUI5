@@ -39,7 +39,7 @@ sap.ui.define([
 			var Color = oStorage.get("Color");
 			var CodeNumber = oStorage.get("CodeNumber");
 			var Identifier = oStorage.get("Identifier");
-			var dataobjectsend = ""+Color+"-"+CodeNumber+"-"+Identifier; 
+			var dataobjectsend = Color+"-"+CodeNumber+"-"+Identifier; 
 			var weburl = "http://localhost:8081/asset?referenceId="+dataobjectsend; 
 			
 			$.ajax({
@@ -49,8 +49,9 @@ sap.ui.define([
 					dataType: "json",
 					success: function(dataj){
 						var datareturned = JSON.stringify(dataj.correlationAssetId);
+						// removes quotes from correlationAssetId string
 						var correlationAssetId = datareturned.substring(1,datareturned.length - 1);
-
+						// puts the CorrelationAssetId in storage
 						oStorage.put("correlationId", correlationAssetId);
 				// navigates to a page
 					oRouter.navTo("Succes");
