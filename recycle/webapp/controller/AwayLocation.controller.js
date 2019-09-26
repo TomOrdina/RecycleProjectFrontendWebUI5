@@ -1,7 +1,8 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
-	"sap/m/MessageBox"
-], function (Controller, MessageBox) {
+	"sap/m/MessageBox",
+	"sap/ui/core/UIComponent"
+], function (Controller, MessageBox, UIComponent) {
 	"use strict";
 
 	var map, markerVectorLayer,glatitude,glongitude;
@@ -44,7 +45,8 @@ sap.ui.define([
 				}
 		// initialise local storage	
 		var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
-		var failedToGetLocation = this.getView().getModel("i18n").getResourceBundle().getText("failLocationAway")
+		var oRouter = UIComponent.getRouterFor(this);
+		var failedToGetLocation = this.getView().getModel("i18n").getResourceBundle().getText("failLocationAway");
 		var AssetId= oStorage.get("correlationId");
 		var today = new Date();
 		var date = today.getFullYear()+ "-" + checkTime(today.getMonth())+ "-" + checkTime(today.getDate())+"T";
@@ -81,6 +83,7 @@ sap.ui.define([
 			
 		    .done(function (){
 					sap.m.MessageBox.show(Timestamp);
+					oRouter.navTo("SuccesLocationSend");
 		    	
 		    })
 		            

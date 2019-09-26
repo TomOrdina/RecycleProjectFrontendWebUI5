@@ -26,6 +26,7 @@ sap.ui.define([
 		}
 			
 		var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
+		var oRouter = UIComponent.getRouterFor(this);
 		var failedSendLocation = this.getView().getModel("i18n").getResourceBundle().getText("failedSendLocation");
 		var AssetId = oStorage.get("correlationId");
 		var today = new Date();
@@ -66,17 +67,19 @@ sap.ui.define([
 			
 			
 		    .done(function (){
-					sap.m.MessageBox.show(Timestamp);
-		    	
+				sap.m.MessageBox.show(Timestamp);
+		    	oRouter.navTo("SuccesLocationSend");
 		    })
 		            
 		     
 		    .fail(function (){
-					sap.m.MessageBox.show(failedSendLocation);});
+					sap.m.MessageBox.show(failedSendLocation);
+
+		    });
+				
 			
 			
-			// var oRouter = UIComponent.getRouterFor(this);
-			// oRouter.navTo("RouteLabelSecondPage");
+
 			
 		},
 		
