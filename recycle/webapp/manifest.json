@@ -115,7 +115,14 @@
 				"name": "AwayLocation",
 				"pattern": "AwayLocation",
 				"target": ["AwayLocation"]
-			}],
+			},
+			{
+				"name": "SuccesLocationSend",
+				"pattern": "SuccesLocationSend",
+				"target": ["SuccesLocation"]
+			}
+			
+			],
 			"targets": {
 				"TargetHome": {
 					"viewType": "XML",
@@ -159,6 +166,10 @@
 				"AwayLocation": {
 					"viewType": "XML",
 					"viewName": "AwayLocation"
+				},"SuccesLocation": {
+					"viewType": "XML",
+					"viewName": "SuccesLocationSend"
+					
 				}
 			}
 		}
