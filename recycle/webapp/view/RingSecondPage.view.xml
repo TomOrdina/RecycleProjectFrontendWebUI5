@@ -13,20 +13,20 @@
 			justifyContent="Center"
 			direction="Column">
 				<items>
-						<Text text="{i18n>headerRingSecond}" class="sapUiSmallMargin header"/>
-						<Text text="{i18n>paraRingSecond}" class="sapUiSmallMargin fontSize"></Text>
-						<Image src="images/IdentifyCircle.PNG" alt="Label example" width="60vw" class="sapUiSmallMargin fontSize"/>
-						<f:SimpleForm>
-			                <Label text="{i18n>RingSecondIdentifier}"/>
-			            	<ComboBox id="identifierRing" placeholder="{i18n>RingSecondSelect}" class="80vw">
-			                	<core:Item key="I" text="A"/>
-			                	<core:Item key="II" text="B"/>
-			                	<core:Item key="III" text="C"/>
-			                </ComboBox>
-			                <Button id="codeSubmit" text="{i18n>labelButtonContinue}" width="80vw" press=".onPress" />
-	                	</f:SimpleForm>
-						<Text text="{i18n>problemsHome}" class="sapUiSmallMargin fontSize"></Text>
-						<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline fontSize"/>
+					<Text text="{i18n>headerRingSecond}" class="sapUiSmallMargin header"/>
+					<Text text="{i18n>paraRingSecond}" class="sapUiSmallMargin fontSize"></Text>
+					<Image src="images/IdentifyCircle.PNG" alt="Label example" width="60vw" class="sapUiSmallMargin fontSize"/>
+					<f:SimpleForm>
+		                <Label text="{i18n>RingSecondIdentifier}"/>
+		            	<ComboBox id="identifierRing" placeholder="{i18n>RingSecondSelect}" class="80vw">
+		                	<core:Item key="I" text="A"/>
+		                	<core:Item key="II" text="B"/>
+		                	<core:Item key="III" text="C"/>
+		                </ComboBox>
+		                <Button id="codeSubmit" text="{i18n>labelButtonContinue}" width="80vw" press=".onPress" />
+                	</f:SimpleForm>
+					<Text text="{i18n>problemsHome}" class="sapUiSmallMargin fontSize"></Text>
+					<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline fontSize"/>
 				</items>
 		</FlexBox>
 	</l:content>
