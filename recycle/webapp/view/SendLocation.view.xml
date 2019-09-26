@@ -6,14 +6,16 @@
 	xmlns:l="sap.ui.layout"  >
 	
 	<l:VerticalLayout width="100%">
-    <l:content>
-        <FlexBox alignItems="Center" justifyContent="Center" direction="Column" >
-            <items>
-                <Text text="{i18n>sendHeader}" class="sapUiTinyMargin header" />
-                <Text text="{i18n>sendPara}" class=" headerLabel sapUiSmallMargin fontSize" />
-                <HBox id="map_canvas" width="80vw" height="65vh" ></HBox>
-                <Button id="ShareSubmit" text="{i18n>sendButton}" width="80vw" press="onPressSend"/>
-            </items>
+    	<l:content>
+        	<FlexBox alignItems="Center" justifyContent="Center" direction="Column" >
+	            <items>
+	                <Text text="{i18n>sendHeader}" class="sapUiTinyMargin header" />
+	                <Text text="{i18n>sendPara}" class=" headerLabel sapUiSmallMargin fontSize" />
+	                <Text id="coordinates" text="{i18n>coordinatesGps}" class="textBold sapUiSmallMargin"/>
+	                <HBox id="map_canvas" width="80vw" height="55vh" ></HBox>
+	                <Button id="RenewSubmit" text="{i18n>renewButton}" width="80vw" press="onPressRenew"/>
+	                <Button id="ShareSubmit" text="{i18n>sendButton}" width="80vw" press="onPressSend"/>
+	            </items>
             </FlexBox>
         </l:content>
     </l:VerticalLayout>

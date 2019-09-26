@@ -12,6 +12,7 @@
 	            <items>
 	                <Text text="{i18n>sendHeader}" class="sapUiTinyMargin header"/>
 	                <Text text="{i18n>sendPara}" class=" headerLabel sapUiSmallMargin fontSize"/>
+	                <Text id="coordinates" text="{i18n>coordinatesAway}" class="textBold sapUiSmallMargin red"/>
 	                <HBox id="map_canvas" width="80vw" height="65vh" ></HBox>
 	                <Button id="SendLocation" text="{i18n>sendButton}" width="80vw" press="onPressError"/>
 	            </items>

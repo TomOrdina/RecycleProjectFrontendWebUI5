@@ -57,8 +57,8 @@ sap.ui.define([
 				var coor = evt.coordinate;
 				
 				var lonlat = ol.proj.transform(coor, 'EPSG:3857', 'EPSG:4326');
-				var lon = lonlat[0];
-				var lat = lonlat[1];
+				var longitude = lonlat[0];
+				var latitude = lonlat[1];
 				
 				// If there is already a maker (= layer), delete it as only one marker is allowed
 				map.removeLayer(markerVectorLayer);
@@ -66,7 +66,7 @@ sap.ui.define([
 				// Create a marker (= feature) which references to the location of the user
 				var marker = new ol.Feature({
 						geometry: new ol.geom.Point(
-						ol.proj.fromLonLat([lon, lat])
+						ol.proj.fromLonLat([longitude, latitude])
 					),
 				});
 				
@@ -89,6 +89,24 @@ sap.ui.define([
 				
 				// Add layer to the map
 				map.addLayer(markerVectorLayer);
+				
+				// Update text value of DMS
+				if(latitude && longitude) {
+					var coor = [longitude,latitude];
+					
+					// Convert coordinates to DMS
+					var dms = ol.coordinate.toStringHDMS(coor);
+					
+					// Get element where we'll show the coordinates
+					var span= that.getView().byId("coordinates");
+					
+					// Set the text of the element to black as the coordinates are found
+					span.addStyleClass("black");
+					
+					that.getView().byId("coordinates").setText("Coordinaten: " + dms);
+				} else {
+					that.getView().byId("coordinates").setText("Haal uw locatie op");
+				}
 			});
 		}
 

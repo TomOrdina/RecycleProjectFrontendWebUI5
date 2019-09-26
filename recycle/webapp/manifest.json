@@ -59,11 +59,11 @@
 			}
 		},
 		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
+			"css": [{
+				"uri": "css/style.css"
+			}, {
+				"uri": "css/ol.css"
+			}]
 		},
 		"routing": {
 			"config": {
@@ -75,78 +75,47 @@
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
-			"routes": [
-				{
-					"name": "RouteHome",
-					"pattern": "RouteHome",
-					"target": [
-						"TargetHome"
-					]
-				},
-				{
-					"name": "RouteRingFirstPage",
-					"pattern": "RouteRingFirstPage",
-					"target": [
-						"RingFirstPage"
-					]
-				},
-				{
-					"name": "RouteRingSecondPage",
-					"pattern": "RouteRingSecondPage",
-					"target": [
-						"RingSecondPage"
-					]
-				},
-				{
-					"name": "RouteLabelFirstPage",
-					"pattern": "RouteLabelFirstPage",
-					"target": [
-						"LabelFirstPage"
-					]
-				},
-				{
-					"name": "RouteLabelSecondPage",
-					"pattern": "RouteLabelSecondPage",
-					"target": [
-						"LabelSecondPage"
-					]
-				},
-				{
-					"name": "Succes",
-					"pattern": "Succes",
-					"target": [
-						"SuccesView"
-					]
-				},
-				{
-					"name": "Error",
-					"pattern": "Error",
-					"target": [
-						"ErrorView"
-					]
-				},
-				{
-					"name": "SendLocation",
-					"pattern": "SendLocation",
-					"target": [
-						"SendLocation"
-					]
-				},
-				{
-					"name": "ItemBack",
-					"pattern": "ItemBack",
-					"target": [
-						"ItemBack"
-					]
-				},
-				{
-					"name": "AwayLocation",
-					"pattern": "AwayLocation",
-					"target": [
-						"AwayLocation"	
-					]
-				}
-			],
+			"routes": [{
+				"name": "RouteHome",
+				"pattern": "RouteHome",
+				"target": ["TargetHome"]
+			}, {
+				"name": "RouteRingFirstPage",
+				"pattern": "RouteRingFirstPage",
+				"target": ["RingFirstPage"]
+			}, {
+				"name": "RouteRingSecondPage",
+				"pattern": "RouteRingSecondPage",
+				"target": ["RingSecondPage"]
+			}, {
+				"name": "RouteLabelFirstPage",
+				"pattern": "RouteLabelFirstPage",
+				"target": ["LabelFirstPage"]
+			}, {
+				"name": "RouteLabelSecondPage",
+				"pattern": "RouteLabelSecondPage",
+				"target": ["LabelSecondPage"]
+			}, {
+				"name": "Succes",
+				"pattern": "Succes",
+				"target": ["SuccesView"]
+			}, {
+				"name": "Error",
+				"pattern": "Error",
+				"target": ["ErrorView"]
+			}, {
+				"name": "SendLocation",
+				"pattern": "SendLocation",
+				"target": ["SendLocation"]
+			}, {
+				"name": "ItemBack",
+				"pattern": "ItemBack",
+				"target": ["ItemBack"]
+			}, {
+				"name": "AwayLocation",
+				"pattern": "AwayLocation",
+				"target": ["AwayLocation"]
+			}],
 			"targets": {
 				"TargetHome": {
 					"viewType": "XML",
