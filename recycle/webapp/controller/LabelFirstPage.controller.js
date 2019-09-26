@@ -22,36 +22,48 @@ sap.ui.define([
 			var sValue = this.getView().byId("name").getValue(); //get input value
 			var isColCorrect, isNumCorrect, sColor, nNumber;
 			
+			//get model from data.json file
+			var oModel = this.getView().getModel("data");
 			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local); // declare oStorage object for local storage
 			
-			if (sValue.length === 4) { // makes sure length of input is 4 as in R124
-					sColor = sValue.slice(0, 1).toUpperCase(); //separates letter from numbers
-					nNumber =sValue.slice(1, 4); //stores number in a var
+			// makes sure length of input is 4 as in R124
+			if (sValue.length === 4) {
+				 //separates letter from numbers and puts both in vars
+					sColor = sValue.slice(0, 1).toUpperCase();
+					nNumber =sValue.slice(1, 4);
 				
-				if (sColor === 'R' | sColor === 'B' | sColor === 'G') { // predefined letter check
+				// predefined letter check
+				if (sColor === 'R' | sColor === 'B' | sColor === 'G') {
 					isColCorrect = true;
 				} else {
 					isColCorrect = false;
 				}
 				
-				if (nNumber > 0 & nNumber <= 130) { // pre defined number check
+				// pre defined number check
+				if (nNumber > 0 & nNumber <= 130) {
 					isNumCorrect = true;
 				} else {
 					isNumCorrect = false;
 				}
 				
-				if (isNumCorrect & isColCorrect) { // if both checks are passed we can push them to local storage
+				// if both checks are passed we can push them to local storage
+				if (isNumCorrect & isColCorrect) {
 					
+					oModel.setData({ "item": {"color": sColor, "number" : nNumber }}, true);
 					oStorage.put("Color", sColor);
 					oStorage.put("CodeNumber", nNumber);
 					
-					var oRouter = UIComponent.getRouterFor(this); // after pushing the values we renavigate to a defferent page
+					console.log(JSON.parse(oModel.getJSON()).item);
+					// after pushing the values we renavigate to a defferent page
+					var oRouter = UIComponent.getRouterFor(this);
 					oRouter.navTo("RouteLabelSecondPage");
 				} else {
-				sap.m.MessageToast.show(sMessage, {duration: 3500}); // error message if the users entry is not in the pre defined range
+				// error message if the users entry is not in the pre defined range
+				sap.m.MessageToast.show(sMessage, {duration: 3500});
 				}
 			} else {
-				sap.m.MessageToast.show(sMessage, {duration: 3500}); // error message if the users entry is not in the pre defined range
+				// error message if the users entry is not in the pre defined range
+				sap.m.MessageToast.show(sMessage, {duration: 3500});
 			}
 		}
 
