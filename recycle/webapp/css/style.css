@@ -18,6 +18,7 @@
 .test { font-size: 2em; }
 
 .red { color: #d90e00; }
+.black { color: black; }
 
 #map_canvas { background-color: green; }
 
