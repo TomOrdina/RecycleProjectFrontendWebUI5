@@ -35,24 +35,21 @@ sap.ui.define([
 		 onPressAway: function (){
 		 	
 		 	
-			
-			function checkTime(i) {
+		 // Check if date & time value is only 1 cipher then add 0
+		function checkTime(i) {
 				  if (i < 10) {
 				    i = "0" + i;
 				  }
 				  return i;
 				}
-			
+		// initialise local storage	
 		var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
-		
+		var failedToGetLocation = this.getView().getModel("i18n").getResourceBundle().getText("failLocationAway")
 		var AssetId= oStorage.get("correlationId");
 		var today = new Date();
 		var date = today.getFullYear()+ "-" + checkTime(today.getMonth())+ "-" + checkTime(today.getDate())+"T";
 		var time = checkTime(today.getHours())+ ":" + checkTime(today.getMinutes())+ ":" + checkTime(today.getSeconds())+"Z";
 		var Timestamp = date+time;
-		
-
-		
 		
 		//Create dataObject that contains AssetID , location and timestamp
 				var assetObject=  {
@@ -68,7 +65,7 @@ sap.ui.define([
 		// webLink to backend 
 		   var weblink = "http://localhost:8081/assetlocation";
 
-		   
+		
 		// Ajax post call ( sending Id, location and timestamp)
 			$.ajax({
 			url: weblink,
@@ -87,13 +84,16 @@ sap.ui.define([
 		    	
 		    })
 		            
-		     
+		    
+		    
 		    .fail(function (){
-					sap.m.MessageBox.show("Ajax call NOK ");});
+					sap.m.MessageBox.show(failedToGetLocation);
+		    	
+		    });
 			
 		 	
-		 	
-		 },
+	},
+
 		 
 		 
 		onAfterRendering: function() {
@@ -176,7 +176,7 @@ sap.ui.define([
 				}
 			});
 		}
-
+	
 		/**
 		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
 		 * @memberOf opensap.recycle.view.AwayLocation

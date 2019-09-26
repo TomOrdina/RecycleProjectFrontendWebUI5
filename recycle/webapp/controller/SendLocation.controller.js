@@ -26,10 +26,8 @@ sap.ui.define([
 		}
 			
 		var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
-		var AssetId= oStorage.get("correlationId");
-
-
-		
+		var failedSendLocation = this.getView().getModel("i18n").getResourceBundle().getText("failedSendLocation");
+		var AssetId = oStorage.get("correlationId");
 		var today = new Date();
 		var date = today.getFullYear()+ "-" + checkTime(today.getMonth())+ "-" + checkTime(today.getDate())+"T";
 		var time = checkTime(today.getHours())+ ":" + checkTime(today.getMinutes())+ ":" + checkTime(today.getSeconds())+"Z";
@@ -74,7 +72,7 @@ sap.ui.define([
 		            
 		     
 		    .fail(function (){
-					sap.m.MessageBox.show("Ajax call NOK ");});
+					sap.m.MessageBox.show(failedSendLocation);});
 			
 			
 			// var oRouter = UIComponent.getRouterFor(this);
