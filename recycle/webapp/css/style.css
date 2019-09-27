@@ -15,6 +15,25 @@
 	font-size: 4vw;
 }
 
+.fontH1 {
+	font-size: 12vw;
+	color: darkblue;
+	font-weight: bold;
+}
+
+.fontH2 {
+	font-size: 6vw;
+	color: darkblue;
+	margin-left: 16px;
+	font-weight: bold;
+}
+
+.fontPara {
+	font-size: 4vw;
+	color: gray;
+}
+
+
 .test { font-size: 2em; }
 
 .red { color: #d90e00; }
