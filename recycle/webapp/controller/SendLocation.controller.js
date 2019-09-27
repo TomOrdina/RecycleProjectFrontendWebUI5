@@ -5,8 +5,9 @@ sap.ui.define([
 ], function (Controller, UIComponent, MessageBox) {
 	"use strict";
 	
-	var map, longitude, latitude, markerVectorLayer;
 	
+	var map, longitude, latitude, markerVectorLayer;
+	//var shortExit = true;
 	return Controller.extend("opensap.recycle.controller.SendLocation", {
 		/**
 		 * Called when a controller is instantiated and its View controls (if available) are already created.
@@ -14,7 +15,105 @@ sap.ui.define([
 		 * @memberOf opensap.recycle.view.SendLocation
 		 */
 		onInit: function () {
+var that = this;
+			// Set OpenLayers map
+			map = new ol.Map({
+				target: that.getView().byId("map_canvas").getDomRef(),
+				layers: [
+					new ol.layer.Tile({
+						source: new ol.source.OSM()
+					})
+				],
+				view: new ol.View({
+					center: ol.proj.fromLonLat([longitude, latitude]),
+					zoom: 15
+				})
+			});
+			
+			// Get user location and show it on the map
+			this.getLocation();
+		},
 
+		// Gets the users location via the device its GPS and puts a marker on the map
+		getLocation: function() {
+			var that = this;
+			
+			if (navigator.geolocation) {
+				
+				var options = {
+				  enableHighAccuracy: true,
+				  timeout: 5000,
+				  maximumAge: 0
+				};
+				
+				function success (position) {
+					console.log("succes");
+					longitude = position.coords.longitude;
+					latitude = position.coords.latitude;
+					
+					console.log("succes 2");
+					//shortExit = false;
+					// Zoom the map
+					map.getView().setCenter(ol.proj.transform([longitude, latitude], 'EPSG:4326', 'EPSG:3857'));
+					map.getView().setZoom(15);
+					
+					// If there is already a maker (= layer), delete it as only one marker is allowed
+					if (markerVectorLayer)
+					{
+						map.removeLayer(markerVectorLayer);
+					}
+					
+					// Create a marker (= feature) which references to the location of the user
+					var marker = new ol.Feature({
+							geometry: new ol.geom.Point(
+							ol.proj.fromLonLat([longitude, latitude])
+						)
+					});
+					
+					// Change the style of the marker and use a custom icon
+					marker.setStyle(new ol.style.Style({
+							image: new ol.style.Icon({
+								src: 'icon/icon.png'
+						})
+					}));
+					
+					// Create a vector based on the marker (= feature)
+					var vectorSource = new ol.source.Vector({
+						features: [marker]
+					});
+						
+					// Create layer based on a vector	
+					markerVectorLayer = new ol.layer.Vector({
+						source: vectorSource
+					});
+					
+					// Add layer to the map
+					map.addLayer(markerVectorLayer);
+					
+					// Update text value of DMS
+					if(latitude && longitude) {
+						var coor = [longitude,latitude];
+						// Convert coordinates to DMS
+						var dms = ol.coordinate.toStringHDMS(coor);
+						
+						that.getView().byId("coordinates").setText("Coordinaten: " + dms);
+
+						
+					} else {
+						that.getView().byId("coordinates").setText("Haal uw locatie op");
+					}
+				}
+				
+				function error(err) {
+					var oRouter = UIComponent.getRouterFor(this);
+					oRouter.navTo("AwayLocation");
+				}
+				navigator.geolocation.getCurrentPosition(success, error, options);
+			
+				
+			} else {
+				sap.m.MessageToast.show("Fail");
+			}
 		},
 		// navigates to a different page
 		onPressSend : function (oEvent) {
@@ -103,90 +202,8 @@ sap.ui.define([
 		 * This hook is the same one that SAPUI5 controls get after being rendered.
 		 * @memberOf opensap.recycle.view.SendLocation
 		 */
-		onAfterRendering: function() {
-			var that = this;
+		onBeforeRendering: function() {
 			
-			// Set OpenLayers map
-			map = new ol.Map({
-				target: that.getView().byId("map_canvas").getDomRef(),
-				layers: [
-					new ol.layer.Tile({
-						source: new ol.source.OSM()
-					})
-				],
-				view: new ol.View({
-					center: ol.proj.fromLonLat([longitude, latitude]),
-					zoom: 15
-				})
-			});
-			
-			// Get user location and show it on the map
-			this.getLocation();
-		},
-
-		// Gets the users location via the device its GPS and puts a marker on the map
-		getLocation: function() {
-			var that = this;
-			
-			if (navigator.geolocation) {
-				navigator.geolocation.getCurrentPosition(function (position) {
-					longitude = position.coords.longitude;
-					latitude = position.coords.latitude;
-					
-					// Zoom the map
-					map.getView().setCenter(ol.proj.transform([longitude, latitude], 'EPSG:4326', 'EPSG:3857'));
-					map.getView().setZoom(15);
-					
-					// If there is already a maker (= layer), delete it as only one marker is allowed
-					if (markerVectorLayer)
-					{
-						map.removeLayer(markerVectorLayer);
-					}
-					
-					// Create a marker (= feature) which references to the location of the user
-					var marker = new ol.Feature({
-							geometry: new ol.geom.Point(
-							ol.proj.fromLonLat([longitude, latitude])
-						),
-					});
-					
-					// Change the style of the marker and use a custom icon
-					marker.setStyle(new ol.style.Style({
-							image: new ol.style.Icon({
-								src: 'icon/icon.png'
-						})
-					}));
-					
-					// Create a vector based on the marker (= feature)
-					var vectorSource = new ol.source.Vector({
-						features: [marker]
-					});
-						
-					// Create layer based on a vector	
-					markerVectorLayer = new ol.layer.Vector({
-						source: vectorSource,
-					});
-					
-					// Add layer to the map
-					map.addLayer(markerVectorLayer);
-					
-					// Update text value of DMS
-					if(latitude && longitude) {
-						var coor = [longitude,latitude];
-						
-						// Convert coordinates to DMS
-						var dms = ol.coordinate.toStringHDMS(coor);
-						
-						that.getView().byId("coordinates").setText("Coordinaten: " + dms);
-
-						
-					} else {
-						that.getView().byId("coordinates").setText("Haal uw locatie op");
-					}
-				});
-			} else {
-				sap.m.MessageToast.show("Fail");
-			}
 		}
 		
 		/**
