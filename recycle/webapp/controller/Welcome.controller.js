@@ -11,7 +11,6 @@ sap.ui.define([
 		},
 
 		onPressHome: function (oEvent) { // navigate to Home
-		console.log('hello');
 			var oRouter = UIComponent.getRouterFor(this);
 			oRouter.navTo("RouteHome");
 		},
