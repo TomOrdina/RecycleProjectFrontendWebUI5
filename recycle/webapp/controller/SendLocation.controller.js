@@ -173,7 +173,8 @@ var that = this;
 		            
 		     
 		    .fail(function (){
-					sap.m.MessageBox.show(failedSendLocation);
+					//sap.m.MessageBox.show(failedSendLocation);
+					oRouter.navTo("AwayLocation");
 
 		    });
 				
