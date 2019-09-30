@@ -18,19 +18,7 @@ sap.ui.define([
 		onPressLabel: function (oEvent) { // navigate to RouteLabelFirstPage
 			var oRouter = UIComponent.getRouterFor(this);
 			oRouter.navTo("RouteLabelFirstPage");
-		}
-		//,
-		// onAfterRendering: function () {
-		// 	if (navigator.geolocation) {
-		// 		navigator.geolocation.getCurrentPosition(function (position) {
-		// 		var	longitude = position.coords.longitude;
-		// 		var	latitude = position.coords.latitude;
-		// 		)}
-		// 		console.log("working");
-		// 	} else {
-		// 		console.log("rejected");
-		// 	}
-		// }                    
+		}         
 	});
 
 });

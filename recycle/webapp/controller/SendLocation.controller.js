@@ -52,11 +52,9 @@ sap.ui.define([
 				};
 				
 				function success (position) {
-					console.log("succes");
 					longitude = position.coords.longitude;
 					latitude = position.coords.latitude;
 					
-					console.log("succes 2");
 					//shortExit = false;
 					// Zoom the map
 					map.getView().setCenter(ol.proj.transform([longitude, latitude], 'EPSG:4326', 'EPSG:3857'));
@@ -131,7 +129,6 @@ sap.ui.define([
 		}
 		//get model from data.json file
 		var oModel = this.getView().getModel("data");
-		//var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 		var oRouter = UIComponent.getRouterFor(this);
 		var AssetId = JSON.parse(oModel.getJSON()).item.correlationAssetId;
 		var today = new Date();
@@ -172,15 +169,12 @@ sap.ui.define([
 			
 			
 		    .done(function (){
-				sap.m.MessageBox.show(Timestamp);
 		    	oRouter.navTo("SuccesLocationSend");
 		    })
 		            
 		     
 		    .fail(function (){
-					//sap.m.MessageBox.show(failedSendLocation);
 					oRouter.navTo("AwayLocation");
-
 		    });
 				
 			

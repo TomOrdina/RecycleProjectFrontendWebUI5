@@ -46,8 +46,6 @@ sap.ui.define([
 		
 		//get model from data.json file
 		var oModel = this.getView().getModel("data");
-		// initialise local storage	
-		//var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 		var oRouter = UIComponent.getRouterFor(this);
 		var failedToGetLocation = this.getView().getModel("i18n").getResourceBundle().getText("failLocationAway");
 		var AssetId= JSON.parse(oModel.getJSON()).item.correlationAssetId;

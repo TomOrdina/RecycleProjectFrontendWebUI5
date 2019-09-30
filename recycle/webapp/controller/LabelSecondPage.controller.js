@@ -29,12 +29,9 @@ sap.ui.define([
 			
 			//get model from data.json file
 			var oModel = this.getView().getModel("data");
-			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local); // creates a local storage object
 			
 			if(sValue) { // navigates to a different page ONLY if a value is selected
 				oModel.setData({ "item": {"identifier" : sValue }}, true);
-				oStorage.put("Identifier", sValue); //  puts values in local storage
-				console.log(JSON.parse(oModel.getJSON()).item.identifier + "this is it");
 				var oRouter = UIComponent.getRouterFor(this); // gets router
 			
 				var data = JSON.parse(oModel.getJSON()).item;
@@ -42,12 +39,7 @@ sap.ui.define([
 				var number = data.number;
 				var identifier = data.identifier;
 				var dataToSend = "" + color + "-" + number + "-" + identifier; 
-				console.log(dataToSend);
 				
-				// var Color = oStorage.get("Color");
-				// var CodeNumber = oStorage.get("CodeNumber");
-				// var Identifier = oStorage.get("Identifier");
-				// var dataobjectsend = Color+"-"+CodeNumber+"-"+Identifier; 
 				var weburl = "http://localhost:8081/asset?referenceId="+dataToSend; 
 				$.ajax({
 	
@@ -58,11 +50,6 @@ sap.ui.define([
 						var datareturned = JSON.stringify(dataj.correlationAssetId);
 						var correlationAssetId = datareturned.substring(1,datareturned.length - 1);
 						oModel.setData({ "item": {"correlationAssetId" : correlationAssetId }}, true);
-						
-						console.log(JSON.parse(oModel.getJSON()).item);
-					
-	
-						oStorage.put("correlationId", correlationAssetId);
 					// navigates to a page
 					oRouter.navTo("Succes");
 					

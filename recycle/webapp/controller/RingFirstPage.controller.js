@@ -25,8 +25,6 @@ sap.ui.define([
 			
 			//get model from data.json file
 			var oModel = this.getView().getModel("data");
-			// creation of local storage object
-			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 			
 			// predefines accepted values
 			if (sValueNum.length === 3) { 
@@ -51,19 +49,13 @@ sap.ui.define([
 			} else if (!isNumCorrect){
 				sap.m.MessageToast.show(sMessageNumber, {duration: 3500});
 			} else {
-				
+				// puts data into local model
 				oModel.setData({ "item": {"color": sValueCol, "number" : sValueNum }}, true);
 				
-				console.log(JSON.parse(oModel.getJSON()).item);
-				// makes sure values are passed to local storage
-				oStorage.put("Color", sValueCol);
-				oStorage.put("CodeNumber", sValueNum);
 				// navigates to a different page
 				var oRouter = UIComponent.getRouterFor(this);
 				oRouter.navTo("RouteRingSecondPage");
 			}
-			
 		}
-			
 	});
 });

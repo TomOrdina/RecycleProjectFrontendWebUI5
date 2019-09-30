@@ -24,7 +24,6 @@ sap.ui.define([
 			
 			//get model from data.json file
 			var oModel = this.getView().getModel("data");
-			var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local); // declare oStorage object for local storage
 			
 			// makes sure length of input is 4 as in R124
 			if (sValue.length === 4) {
@@ -50,10 +49,7 @@ sap.ui.define([
 				if (isNumCorrect & isColCorrect) {
 					
 					oModel.setData({ "item": {"color": sColor, "number" : nNumber }}, true);
-					oStorage.put("Color", sColor);
-					oStorage.put("CodeNumber", nNumber);
 					
-					console.log(JSON.parse(oModel.getJSON()).item);
 					// after pushing the values we renavigate to a defferent page
 					var oRouter = UIComponent.getRouterFor(this);
 					oRouter.navTo("RouteLabelSecondPage");
