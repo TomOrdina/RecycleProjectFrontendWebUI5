@@ -15,23 +15,7 @@ sap.ui.define([
 		 * @memberOf opensap.recycle.view.SendLocation
 		 */
 		onInit: function () {
-var that = this;
-			// Set OpenLayers map
-			map = new ol.Map({
-				target: that.getView().byId("map_canvas").getDomRef(),
-				layers: [
-					new ol.layer.Tile({
-						source: new ol.source.OSM()
-					})
-				],
-				view: new ol.View({
-					center: ol.proj.fromLonLat([longitude, latitude]),
-					zoom: 15
-				})
-			});
-			
-			// Get user location and show it on the map
-			this.getLocation();
+
 		},
 
 		// Gets the users location via the device its GPS and puts a marker on the map
@@ -39,7 +23,28 @@ var that = this;
 			var that = this;
 			
 			if (navigator.geolocation) {
+				// Set OpenLayers map
+				if(map) {
+					map.view = new ol.View({
+						center: ol.proj.fromLonLat([longitude, latitude]),
+						zoom: 15
+					});
+				} else {
+					map = new ol.Map({
+					target: that.getView().byId("map_canvas").getDomRef(),
+					layers: [
+						new ol.layer.Tile({
+							source: new ol.source.OSM()
+						})
+					],
+					view: new ol.View({
+						center: ol.proj.fromLonLat([longitude, latitude]),
+						zoom: 15
+					})
+				});
+				}
 				
+			
 				var options = {
 				  enableHighAccuracy: true,
 				  timeout: 5000,
@@ -105,7 +110,7 @@ var that = this;
 				}
 				
 				function error(err) {
-					var oRouter = UIComponent.getRouterFor(this);
+					var oRouter = UIComponent.getRouterFor(that);
 					oRouter.navTo("AwayLocation");
 				}
 				navigator.geolocation.getCurrentPosition(success, error, options);
@@ -118,16 +123,16 @@ var that = this;
 		// navigates to a different page
 		onPressSend : function (oEvent) {
 		function checkTime(i) {
-		  if (i < 10) {
-		    i = "0" + i;
-		  }
-		  return i;
+			var k = i;
+			if (i < 10) {
+			  k = "0" + k;
+			}
+			return k;
 		}
 		//get model from data.json file
 		var oModel = this.getView().getModel("data");
 		//var oStorage = jQuery.sap.storage(jQuery.sap.storage.Type.local);
 		var oRouter = UIComponent.getRouterFor(this);
-		var failedSendLocation = this.getView().getModel("i18n").getResourceBundle().getText("failedSendLocation");
 		var AssetId = JSON.parse(oModel.getJSON()).item.correlationAssetId;
 		var today = new Date();
 		var date = today.getFullYear()+ "-" + checkTime(today.getMonth())+ "-" + checkTime(today.getDate())+"T";
@@ -203,8 +208,9 @@ var that = this;
 		 * This hook is the same one that SAPUI5 controls get after being rendered.
 		 * @memberOf opensap.recycle.view.SendLocation
 		 */
-		onBeforeRendering: function() {
-			
+		onAfterRendering: function() {
+			// Get user location and show it on the map
+			this.getLocation();
 		}
 		
 		/**
