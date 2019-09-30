@@ -9,8 +9,8 @@
 		<App id="app">
 			<l:VerticalLayout width="100%" class="sapUiResponsiveContentPadding">
 				<FlexBox
-					alignItems="Left"
-					justifyContent="Left"
+					alignItems="Start"
+					justifyContent="Start"
 					direction="Column">
 						<items>
 								<l:HorizontalLayout>
