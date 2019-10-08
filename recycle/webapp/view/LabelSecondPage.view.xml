@@ -13,7 +13,7 @@
 				<items>
 					<Text text="{i18n>LabelIdentifier}" class="sapUiSmallMargin header"/>
 					<Text text="{i18n>LabelFindIdentifier}" class="sapUiSmallMargin fontSize"/>
-					<Image src="images/LabelConfirmation2.png" width="60vw" tooltip="label confirmation" class="sapUiSmallMargin"/>
+					<Image src="./images/LabelConfirmation2.png" width="60vw" tooltip="label confirmation" class="sapUiSmallMargin"/>
 					<Text text="{i18n>LabelWarningMessage2}" class="sapUiTinyMargin fontSize" textAlign="Center"/>
 				</items>
 				<f:SimpleForm>

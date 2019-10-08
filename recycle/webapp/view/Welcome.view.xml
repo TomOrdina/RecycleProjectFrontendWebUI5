@@ -14,7 +14,7 @@
 					direction="Column">
 						<items>
 								<l:HorizontalLayout>
-										<Image src="images/WelcomePic.png" alt="Label example" width="100vw" class=""></Image>
+										<Image src="./images/WelcomePic.png" alt="Label example" width="100vw" class=""></Image>
 								</l:HorizontalLayout>
 					
 									<Text text="{i18n>h1Welcome}" class="sapUiSmallMargin fontH1"/>

@@ -56,7 +56,6 @@ sap.ui.define([
 						// navigates to a page
 						oRouter.navTo("Error");
 						location.reload();
-					
 					}
 				});
 			} else {

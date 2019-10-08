@@ -16,7 +16,7 @@
 								<Text text="{i18n>thankYou}" class="sapUiSmallMargin header"></Text>
 								<Text text="{i18n>sendDone}" class="sapUiSmallMargin fontSize"></Text>
 								<l:HorizontalLayout>
-										<Image src="images/ZeroPlasticRivers.png" alt="Label example" width="30vw" class="sapUiSmallMargin"></Image>
+										<Image src="./images/ZeroPlasticRivers.png" alt="Label example" width="30vw" class="sapUiSmallMargin"></Image>
 								</l:HorizontalLayout>
 								
 								<Text text="{i18n>visitHome}" class="sapUiSmallMargin fontSize"></Text>

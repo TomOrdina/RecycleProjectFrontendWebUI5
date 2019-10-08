@@ -14,8 +14,8 @@
 						<Text text="{i18n>headerError}" class="sapUiSmallMargin header red"></Text>
 						<Text text="{i18n>paraHome}" class="sapUiSmallMargin fontSize"></Text>
 						<l:HorizontalLayout>
-								<Image src="images/Label.PNG" alt="Label example" width="30vw" class="sapUiSmallMargin"></Image>
-								<Image src="images/Ring.PNG" alt="Ring example" width="30vw" class="sapUiSmallMargin"></Image>
+								<Image src="./images/Label.PNG" alt="Label example" width="30vw" class="sapUiSmallMargin"></Image>
+								<Image src="./images/Ring.PNG" alt="Ring example" width="30vw" class="sapUiSmallMargin"></Image>
 						</l:HorizontalLayout>
 						<Text text="{i18n>objectSelection}" class="sapUiSmallMargin bold fontSize"></Text>
 						<Button text="{i18n>labelbuttonlabel}" width="80vw" press=".onPressLabel" class="fontSize" ></Button>
