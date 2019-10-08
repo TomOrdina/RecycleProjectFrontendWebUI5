@@ -1,0 +1,30 @@
+<mvc:View 
+	controllerName="opensap.recycle.controller.Error"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" >
+
+	<l:VerticalLayout width="100%" class="sapUiResponsiveContentPadding">
+		<FlexBox
+			alignItems="Center"
+			justifyContent="Center"
+			direction="Column">
+				<items>
+						<Text text="{i18n>headerError}" class="sapUiSmallMargin header red"></Text>
+						<Text text="{i18n>paraHome}" class="sapUiSmallMargin fontSize"></Text>
+						<l:HorizontalLayout>
+								<Image src="./images/Label.PNG" alt="Label example" width="30vw" class="sapUiSmallMargin"></Image>
+								<Image src="./images/Ring.PNG" alt="Ring example" width="30vw" class="sapUiSmallMargin"></Image>
+						</l:HorizontalLayout>
+						<Text text="{i18n>objectSelection}" class="sapUiSmallMargin bold fontSize"></Text>
+						<Button text="{i18n>labelbuttonlabel}" width="80vw" press=".onPressLabel" class="fontSize" ></Button>
+						<Button text="{i18n>labelButtonRing}" width="80vw" press=".onPressRing"></Button>
+						
+						<Text text="{i18n>problemsHome}" class="sapUiSmallMargin fontSize"></Text>
+						<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline fontSize"/>
+				</items>
+		</FlexBox>
+	</l:VerticalLayout>
+
+</mvc:View>

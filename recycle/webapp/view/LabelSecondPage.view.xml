@@ -1,0 +1,37 @@
+<mvc:View 
+	controllerName="opensap.recycle.controller.LabelSecondPage"
+	id="test"
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form">
+	
+	<l:VerticalLayout width="100%">
+		<l:content>
+			<FlexBox alignItems="Center" justifyContent="Center" direction="Column">
+				<items>
+					<Text text="{i18n>LabelIdentifier}" class="sapUiSmallMargin header"/>
+					<Text text="{i18n>LabelFindIdentifier}" class="sapUiSmallMargin fontSize"/>
+					<Image src="./images/LabelConfirmation2.png" width="60vw" tooltip="label confirmation" class="sapUiSmallMargin"/>
+					<Text text="{i18n>LabelWarningMessage2}" class="sapUiTinyMargin fontSize" textAlign="Center"/>
+				</items>
+				<f:SimpleForm>
+					<FlexBox alignItems="Center" justifyContent="Center" direction="Column">
+						<items>
+							<Label text="{i18n>LabelIdentifierlbl}" labelFor="CodeLabel" design="Bold" class="fontSize"/>
+							<ComboBox id="comboValue" width="80vw" change=".onChange">
+								<core:Item key="I" text="I"/>
+								<core:Item key="II" text="II"/>
+								<core:Item key="III" text="III"/>
+							</ComboBox>
+							<Button id="codeSubmit" text="{i18n>LabelButtonContinue}" press=".onPress" width="80vw"/>							
+						</items>
+					</FlexBox>
+				</f:SimpleForm>
+				<Text text="{i18n>problemsHome}" class="sapUiSmallMargin fontSize"></Text>
+				<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline fontSize"/>
+			</FlexBox>
+		</l:content>
+	</l:VerticalLayout>
+</mvc:View>

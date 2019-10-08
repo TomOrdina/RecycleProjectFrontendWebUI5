@@ -1,0 +1,32 @@
+<mvc:View 
+	controllerName="opensap.recycle.controller.Welcome" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	displayBlock="true"
+	xmlns:l="sap.ui.layout"
+	xmlns="sap.m">
+	
+	<Shell id="shell">
+		<App id="app">
+			<l:VerticalLayout width="100%" class="sapUiResponsiveContentPadding">
+				<FlexBox
+					alignItems="Start"
+					justifyContent="Start"
+					direction="Column">
+						<items>
+								<l:HorizontalLayout>
+										<Image src="./images/WelcomePic.png" alt="Label example" width="100vw" class=""></Image>
+								</l:HorizontalLayout>
+					
+									<Text text="{i18n>h1Welcome}" class="sapUiSmallMargin fontH1"/>
+									<Text text="{i18n>objectFound}" class="fontH2"/>
+									<Text text="{i18n>paragraphWelcome1}" class="fontPara sapUiSmallMargin"/>
+									<Text text="{i18n>paragraphWelcome2}" class="fontPara sapUiSmallMargin"/>
+									<Text text="{i18n>paragraphWelcome3}" class="fontPara sapUiSmallMargin"/>
+									<Text text="{i18n>paragraphWelcome4}" class="fontPara sapUiSmallMargin"/>
+								<Button text="{i18n>participateButton}" width="50vw"  press=".onPressHome" class="fontSize sapUiSmallMargin" ></Button>
+						</items>
+				</FlexBox>
+			</l:VerticalLayout>
+		</App>
+	</Shell>
+</mvc:View>
