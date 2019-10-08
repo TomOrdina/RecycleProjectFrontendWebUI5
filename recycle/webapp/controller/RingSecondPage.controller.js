@@ -17,14 +17,14 @@ sap.ui.define([
 		},
 
 		onPress: function (oEvent) {
-			// gets i18n text and input value
+			// Gets i18n text and input value
 			var sMessage = this.getView().getModel("i18n").getResourceBundle().getText("failCombo");
 			var sValue = this.getView().byId("identifierRing").getSelectedKey().toUpperCase();
 			
-			//get model from data.json file
+			// Get model from data.json file
 			var oModel = this.getView().getModel("data");
 			
-			// checks if anything is entered
+			// Checks if anything is entered
 			if(sValue) {
 				
 				oModel.setData({ "item": {"identifier" : sValue }}, true);
@@ -48,18 +48,17 @@ sap.ui.define([
 						var datareturned = JSON.stringify(dataj.correlationAssetId);
 						var correlationAssetId = datareturned.substring(1,datareturned.length - 1);	
 						oModel.setData({ "item": {"correlationAssetId" : correlationAssetId }}, true);
-					// navigates to a page
-					oRouter.navTo("Succes");
-					
+						// Navigate to the succes page
+						oRouter.navTo("Succes");
 					},
 					error: function(){
-						// navigates to a page
+						// Navigates to the error page
 						oRouter.navTo("Error");
 						location.reload();
 					}
 				});
 			} else {
-				// throws an error message if nothing is entered
+				// Throws an error message if nothing is entered
 				sap.m.MessageToast.show(sMessage, {duration: 3500});
 			}
 		}

@@ -22,48 +22,45 @@ sap.ui.define([
 			var sValue = this.getView().byId("name").getValue(); //get input value
 			var isColCorrect, isNumCorrect, sColor, nNumber;
 			
-			//get model from data.json file
+			// Get model from data.json file
 			var oModel = this.getView().getModel("data");
 			
-			// makes sure length of input is 4 as in R124
+			// Makes sure length of input is 4 as in R124
 			if (sValue.length === 4) {
-				 //separates letter from numbers and puts both in vars
+				 // Separates letter from numbers and puts both in vars
 					sColor = sValue.slice(0, 1).toUpperCase();
 					nNumber =sValue.slice(1, 4);
 				
-				// predefined letter check
+				// Predefined letter check
 				if (sColor === 'R' | sColor === 'B' | sColor === 'G') {
 					isColCorrect = true;
 				} else {
 					isColCorrect = false;
 				}
 				
-				// pre defined number check
+				// Predefined number check
 				if (nNumber > 0 & nNumber <= 130) {
 					isNumCorrect = true;
 				} else {
 					isNumCorrect = false;
 				}
 				
-				// if both checks are passed we can push them to local storage
+				// If both checks are passed we can push them to local storage
 				if (isNumCorrect & isColCorrect) {
 					
 					oModel.setData({ "item": {"color": sColor, "number" : nNumber }}, true);
 					
-					// after pushing the values we renavigate to a defferent page
+					// after pushing the values we renavigate to a different page
 					var oRouter = UIComponent.getRouterFor(this);
 					oRouter.navTo("RouteLabelSecondPage");
 				} else {
-				// error message if the users entry is not in the pre defined range
+				// Error message if the users entry is not in the predefined range
 				sap.m.MessageToast.show(sMessage, {duration: 3500});
 				}
 			} else {
-				// error message if the users entry is not in the pre defined range
+				// Error message if the users entry is not in the predefined range
 				sap.m.MessageToast.show(sMessage, {duration: 3500});
 			}
 		}
-
-	
 	});
-
 });
