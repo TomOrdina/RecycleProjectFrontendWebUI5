@@ -100,6 +100,7 @@ sap.ui.define([
 							var north = dms.substr(0, index + 1);
 							var east = dms.substr(index -1);
 							
+							// Set the north & east values based on the dms value
 							that.getView().byId("north").setText(north);
 							that.getView().byId("east").setText(east);
 						} else {

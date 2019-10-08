@@ -9,17 +9,18 @@ sap.ui.define([
 		onInit: function () {
 
 		},
-		// navigates to a different page
+		
+		// Navigate to a different page
 		sendLocation: function (oEvent) {
 			var oRouter = UIComponent.getRouterFor(this);
 			oRouter.navTo("SendLocation");
 		},
 		
+		// Navigate to a different page
 		awayLocation: function (oEvent) {
 			var oRouter = UIComponent.getRouterFor(this);
 			oRouter.navTo("AwayLocation");
 		}
 
 	});
-
 });

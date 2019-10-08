@@ -14,7 +14,7 @@ sap.ui.define([
 
 		onPress: function (oEvent) {
 			
-			// gets text from i18n
+			// Gets text from i18n
 			var sMessageNumber = this.getView().getModel("i18n").getResourceBundle().getText("failNumber");
 			var sMessageColor = this.getView().getModel("i18n").getResourceBundle().getText("failColor");
 			// gets values from input
@@ -23,10 +23,10 @@ sap.ui.define([
 			var isColCorrect, isNumCorrect;
 			
 			
-			//get model from data.json file
+			// Get model from data.json file
 			var oModel = this.getView().getModel("data");
 			
-			// predefines accepted values
+			// Predefines accepted values
 			if (sValueNum.length === 3) { 
 				
 				if (sValueNum > 0 & sValueNum <= 130) {
@@ -35,24 +35,24 @@ sap.ui.define([
 					isNumCorrect = false;
 				}
 			}
-			// checks if a color is selected
+			// Checks if a color is selected
 			if (sValueCol) {
 				isColCorrect = true;
 			} else {
 				isColCorrect = false;
 			}
 			
-			//throws a message if any of the values is not entered
+			// Throws a message if any of the values is not entered
 			
 			if (!isColCorrect) {
 				sap.m.MessageToast.show(sMessageColor, {duration: 3500});
 			} else if (!isNumCorrect){
 				sap.m.MessageToast.show(sMessageNumber, {duration: 3500});
 			} else {
-				// puts data into local model
+				// Puts data into local model
 				oModel.setData({ "item": {"color": sValueCol, "number" : sValueNum }}, true);
 				
-				// navigates to a different page
+				// Navigates to a different page
 				var oRouter = UIComponent.getRouterFor(this);
 				oRouter.navTo("RouteRingSecondPage");
 			}

@@ -31,20 +31,19 @@ sap.ui.define([
 					});
 				} else {
 					map = new ol.Map({
-					target: that.getView().byId("map_canvas").getDomRef(),
-					layers: [
-						new ol.layer.Tile({
-							source: new ol.source.OSM()
+						target: that.getView().byId("map_canvas").getDomRef(),
+						layers: [
+							new ol.layer.Tile({
+								source: new ol.source.OSM()
+							})
+						],
+						view: new ol.View({
+							center: ol.proj.fromLonLat([longitude, latitude]),
+							zoom: 15
 						})
-					],
-					view: new ol.View({
-						center: ol.proj.fromLonLat([longitude, latitude]),
-						zoom: 15
-					})
-				});
+					});
 				}
 				
-			
 				var options = {
 				  enableHighAccuracy: true,
 				  timeout: 5000,
@@ -100,7 +99,6 @@ sap.ui.define([
 						var dms = ol.coordinate.toStringHDMS(coor);
 						
 						that.getView().byId("coordinates").setText("Coordinaten: " + dms);
-
 						
 					} else {
 						that.getView().byId("coordinates").setText("Haal uw locatie op");
@@ -112,75 +110,64 @@ sap.ui.define([
 					oRouter.navTo("AwayLocation");
 				}
 				navigator.geolocation.getCurrentPosition(success, error, options);
-			
 				
 			} else {
 				sap.m.MessageToast.show("Fail");
 			}
 		},
+		
 		// navigates to a different page
 		onPressSend : function (oEvent) {
-		function checkTime(i) {
-			var k = i;
-			if (i < 10) {
-			  k = "0" + k;
+			function checkTime(i) {
+				var k = i;
+				if (i < 10) {
+				  k = "0" + k;
+				}
+				return k;
 			}
-			return k;
-		}
-		//get model from data.json file
-		var oModel = this.getView().getModel("data");
-		var oRouter = UIComponent.getRouterFor(this);
-		var AssetId = JSON.parse(oModel.getJSON()).item.correlationAssetId;
-		var today = new Date();
-		var date = today.getFullYear()+ "-" + checkTime(today.getMonth())+ "-" + checkTime(today.getDate())+"T";
-		var time = checkTime(today.getHours())+ ":" + checkTime(today.getMinutes())+ ":" + checkTime(today.getSeconds())+"Z";
-		var Timestamp = date+time;
-		
-
-		
-		
-		//Create dataObject that contains AssetID , location and timestamp
-				var assetObject=  {
-							    "correlationAssetId": AssetId,
-							    "latitude": latitude,
-							    "longitude": longitude,
-							    "timestamp": Timestamp
-				                	  };
-				                	  
-				var assetObjectString=JSON.stringify(assetObject);
-				
-
-		// webLink to backend 
-		   var weblink = "http://localhost:8081/assetlocation";
-
-		   
-		// Ajax post call ( sending Id, location and timestamp)
+			
+			// get model from data.json file
+			var oModel = this.getView().getModel("data");
+			var oRouter = UIComponent.getRouterFor(this);
+			var AssetId = JSON.parse(oModel.getJSON()).item.correlationAssetId;
+			var today = new Date();
+			var date = today.getFullYear()+ "-" + checkTime(today.getMonth())+ "-" + checkTime(today.getDate())+"T";
+			var time = checkTime(today.getHours())+ ":" + checkTime(today.getMinutes())+ ":" + checkTime(today.getSeconds())+"Z";
+			var Timestamp = date+time;
+			
+			//Create dataObject that contains AssetID , location and timestamp
+			var assetObject=  {
+				"correlationAssetId": AssetId,
+				"latitude": latitude,
+				"longitude": longitude,
+				"timestamp": Timestamp
+			};
+			                	  
+			var assetObjectString=JSON.stringify(assetObject);
+					
+	
+			// webLink to backend 
+			var weblink = "http://localhost:8081/assetlocation";
+			   
+			// Ajax post call ( sending Id, location and timestamp)
 			$.ajax({
 			url: weblink,
 			type: "POST",
 			dataType: "json",
 			contentType: "application/json;charset=utf-8",
-	
-		// Stringify dataObject
+		
+			// Stringify dataObject
 			data:assetObjectString
 				
-		
 			})
 			
+			.done(function (){
+				oRouter.navTo("SuccesLocationSend");
+			})
 			
-		    .done(function (){
-		    	oRouter.navTo("SuccesLocationSend");
-		    })
-		            
-		     
-		    .fail(function (){
+			.fail(function (){
 					oRouter.navTo("AwayLocation");
-		    });
-				
-			
-			
-
-			
+			});
 		},
 		
 		// renews location

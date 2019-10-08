@@ -27,13 +27,14 @@ sap.ui.define([
 			var sMessage = this.getView().getModel("i18n").getResourceBundle().getText("failCombo"); // gets text from i18n model
 			var sValue = this.getView().byId("comboValue").getSelectedKey().toUpperCase(); // gets input value from view
 			
-			//get model from data.json file
+			// Get model from data.json file
 			var oModel = this.getView().getModel("data");
 			
-			if(sValue) { // navigates to a different page ONLY if a value is selected
+			if(sValue) { 
+				// Navigates to a different page ONLY if a value is selected
 				oModel.setData({ "item": {"identifier" : sValue }}, true);
 				var oRouter = UIComponent.getRouterFor(this); // gets router
-			
+				
 				var data = JSON.parse(oModel.getJSON()).item;
 				var color = data.color;
 				var number = data.number;
@@ -42,7 +43,6 @@ sap.ui.define([
 				
 				var weburl = "http://localhost:8081/asset?referenceId="+dataToSend; 
 				$.ajax({
-	
 					url: weburl,
 					type: "GET",
 					dataType: "json",
@@ -50,19 +50,19 @@ sap.ui.define([
 						var datareturned = JSON.stringify(dataj.correlationAssetId);
 						var correlationAssetId = datareturned.substring(1,datareturned.length - 1);
 						oModel.setData({ "item": {"correlationAssetId" : correlationAssetId }}, true);
-					// navigates to a page
-					oRouter.navTo("Succes");
-					
+						// Navigates to the succes page
+						oRouter.navTo("Succes");
 					},
 					error: function(){
-						// navigates to a page
-							oRouter.navTo("Error");
-							location.reload();
+						// Navigates to the error page
+						oRouter.navTo("Error");
+						location.reload();
 					}
 				});
 			
 			} else {
-				sap.m.MessageToast.show(sMessage, {duration: 3500}); // error message if no value is entered
+				// Error message if no value is entered
+				sap.m.MessageToast.show(sMessage, {duration: 3500});
 			}
 		}
 			
