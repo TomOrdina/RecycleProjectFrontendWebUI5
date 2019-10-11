@@ -3,6 +3,7 @@
 	    "color": "",
 	    "number": "",
 	    "identifier" : "",
-	    "correlationAssetId" : "888"
+	    "correlationAssetId" : "",
+	    "location":""
 	}
 }

@@ -21,15 +21,24 @@ sap.ui.define([
 			var sValueCol = this.getView().byId("comboRing").getSelectedKey();
 			var sValueNum = this.getView().byId("numberRing").getValue();
 			var isColCorrect, isNumCorrect;
-			
+			var MaxLength = 3;
+			var inputToString = sValueNum.toString();
 			
 			// Get model from data.json file
 			var oModel = this.getView().getModel("data");
+			// converts input value to an accepted form
+			if (inputToString.length < MaxLength) {
+				
+				var i = MaxLength - inputToString.length;
+				for (var j = 0; j < i; ++j) {
+					inputToString = "0" + inputToString;
+				}
+			}
+			
 			
 			// Predefines accepted values
-			if (sValueNum.length === 3) { 
-				
-				if (sValueNum > 0 & sValueNum <= 130) {
+			if (inputToString.length === 3) {
+				if (sValueNum > 0 & sValueNum <= 999) {
 					isNumCorrect = true;
 				} else {
 					isNumCorrect = false;
@@ -50,7 +59,7 @@ sap.ui.define([
 				sap.m.MessageToast.show(sMessageNumber, {duration: 3500});
 			} else {
 				// Puts data into local model
-				oModel.setData({ "item": {"color": sValueCol, "number" : sValueNum }}, true);
+				oModel.setData({ "item": {"color": sValueCol, "number" : inputToString }}, true);
 				
 				// Navigates to a different page
 				var oRouter = UIComponent.getRouterFor(this);

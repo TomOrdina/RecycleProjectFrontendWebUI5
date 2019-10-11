@@ -32,7 +32,7 @@ sap.ui.define([
 					nNumber =sValue.slice(1, 4);
 				
 				// Predefined letter check
-				if (sColor === 'R' | sColor === 'B' | sColor === 'G') {
+				if (sColor === 'R' | sColor === 'B' | sColor === 'Z') {
 					isColCorrect = true;
 				} else {
 					isColCorrect = false;

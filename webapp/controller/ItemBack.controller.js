@@ -1,6 +1,8 @@
 sap.ui.define([
-	"sap/ui/core/mvc/Controller"
-], function (Controller) {
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/core/UIComponent",
+	"sap/m/MessageToast"
+], function (Controller, UIComponent, MessageToast) {
 	"use strict";
 	
 	var map, longitude, latitude;
@@ -112,15 +114,36 @@ sap.ui.define([
 					sap.m.MessageToast.show("Fail");
 				}
 			}
-		}
+		},
 
-		/**
-		 * Called when the Controller is destroyed. Use this one to free resources and finalize activities.
-		 * @memberOf opensap.recycle.view.ItemBack
-		 */
-		//	onExit: function() {
-		//
-		//	}
+		onPress: function () {
+			
+			var oRouter = UIComponent.getRouterFor(this);
+			var oModel = this.getView().getModel("data");
+			var AssetId = JSON.parse(oModel.getJSON()).item.correlationAssetId;
+			
+			var weblink = "https://eks.ordina-jworks.io/zpr-bff/assets/" +AssetId + "/state";
+			console.log(weblink);
+			$.ajax({
+			url: weblink,
+			type: "POST",
+			dataType: "json",
+			contentType: "application/json;charset=utf-8",
+		
+			// Stringify dataObject
+			data:{
+		        	"active": true    
+				}
+			})
+			
+			.done(function (){
+				oRouter.navTo("SuccesLocationSend");
+			})
+			
+			.fail(function (){
+				oRouter.navTo("RouteHome");
+			});
+		}
 
 	});
 

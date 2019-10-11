@@ -18,7 +18,7 @@
 					<Image src="./images/IdentifyCircle.PNG" alt="Label example" width="60vw" class="sapUiSmallMargin fontSize"/>
 					<f:SimpleForm>
 		                <Label text="{i18n>RingSecondIdentifier}"/>
-		            	<ComboBox id="identifierRing" placeholder="{i18n>RingSecondSelect}" class="80vw">
+		            	<ComboBox id="identifierRing" placeholder="{i18n>RingSecondSelect}" width="80vw">
 		                	<core:Item key="I" text="A"/>
 		                	<core:Item key="II" text="B"/>
 		                	<core:Item key="III" text="C"/>

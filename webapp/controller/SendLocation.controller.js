@@ -137,17 +137,15 @@ sap.ui.define([
 			
 			//Create dataObject that contains AssetID , location and timestamp
 			var assetObject=  {
-				"correlationAssetId": AssetId,
 				"latitude": latitude,
 				"longitude": longitude,
 				"timestamp": Timestamp
 			};
-			                	  
-			var assetObjectString=JSON.stringify(assetObject);
-					
+			
+			oModel.setData({ "item": {"location" : assetObject }}, true);
 	
 			// webLink to backend 
-			var weblink = "http://localhost:8081/assetlocation";
+			var weblink = "https://eks.ordina-jworks.io/zpr-bff/assets/" + AssetId +"/location";
 			   
 			// Ajax post call ( sending Id, location and timestamp)
 			$.ajax({
@@ -157,16 +155,16 @@ sap.ui.define([
 			contentType: "application/json;charset=utf-8",
 		
 			// Stringify dataObject
-			data:assetObjectString
+			data:assetObject
 				
 			})
 			
 			.done(function (){
-				oRouter.navTo("SuccesLocationSend");
+				oRouter.navTo("ItemBack");
 			})
 			
-			.fail(function (){
-					oRouter.navTo("AwayLocation");
+			.fail(function (err){
+				oRouter.navTo("AwayLocation");
 			});
 		},
 		

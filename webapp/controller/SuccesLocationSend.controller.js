@@ -19,7 +19,7 @@ sap.ui.define([
 			// Get model from data.json file
 			var oModel = this.getView().getModel("data");
 			var correlationAssetId = JSON.parse(oModel.getJSON()).item.correlationAssetId;
-
+			console.log(JSON.parse(oModel.getJSON()).item);
 			if (!this.initialized) {
 				this.initialized = true;
 				

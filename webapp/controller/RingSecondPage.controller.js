@@ -37,7 +37,7 @@ sap.ui.define([
 				var identifier = data.identifier;
 				var dataToSend = "" + color + "-" + number + "-" + identifier; 
 				
-				var weburl = "http://localhost:8081/asset?referenceId="+dataToSend; 
+				var weburl = "https://eks.ordina-jworks.io/zpr-bff/assets?physicalid=" + dataToSend; 
 			
 			$.ajax({
 
@@ -45,9 +45,7 @@ sap.ui.define([
 					type: "GET",
 					dataType: "json",
 					success: function(dataj){
-						var datareturned = JSON.stringify(dataj.correlationAssetId);
-						var correlationAssetId = datareturned.substring(1,datareturned.length - 1);	
-						oModel.setData({ "item": {"correlationAssetId" : correlationAssetId }}, true);
+						oModel.setData({ "item": {"correlationAssetId" : dataj.id }}, true);
 						// Navigate to the succes page
 						oRouter.navTo("Succes");
 					},

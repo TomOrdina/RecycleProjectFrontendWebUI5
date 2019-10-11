@@ -16,7 +16,7 @@
         <FlexBox alignItems="Center" justifyContent="Center" direction="Column">
             <items>
                 <HBox id="map_canvas" width="80vw" height="41vh"></HBox>
-                <Button id="shareSubmit" text="{i18n>backButton}" width="80vw" press="onPressBack"/>
+                <Button id="shareSubmit" text="{i18n>backButton}" width="80vw" press="onPress"/>
                 <Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>backUnable}" class="sapUiSmallMargin textBold fontSize underline"/>
             </items>
             </FlexBox>
