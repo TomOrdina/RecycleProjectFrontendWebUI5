@@ -20,19 +20,19 @@
 								justifyContent="Center"
 								direction="Column">
 									<items>
-						                <Label text="{i18n>RingSecondIdentifier}" class="fontSize"/>
-						            	<ComboBox id="comboRing" placeholder="{i18n>RingSecondSelectColor}" width="80vw">
-						                	<core:Item key="R" text="{i18n>red}"/>
-						                	<core:Item key="G" text="{i18n>black}"/>
-						                	<core:Item key="B" text="{i18n>blue}"/>
-						                </ComboBox>
-						                <Text text="{i18n>headerRingFirstNumber}" class="sapUiSmallMargin header"/>
-						                <Label text="{i18n>RingSecondNumber}" class="fontSize"/>
-						                <Input id="numberRing" class="sapUiSmallMargin" width="80vw" maxLength="3" submit=".onPress"/>
-						                <Button id="codeSubmit" text="{i18n>labelButtonContinue}" width="80vw" press=".onPress" class="sapUiSmallMargin test"/>
-						             </items>
+										<Label text="{i18n>RingSecondIdentifier}" class="fontSize"/>
+										<ComboBox id="comboRing" placeholder="{i18n>RingSecondSelectColor}" width="80vw">
+											<core:Item key="R" text="{i18n>red}"/>
+											<core:Item key="Z" text="{i18n>black}"/>
+											<core:Item key="B" text="{i18n>blue}"/>
+										</ComboBox>
+										<Text text="{i18n>headerRingFirstNumber}" class="sapUiSmallMargin header"/>
+										<Label text="{i18n>RingSecondNumber}" class="fontSize"/>
+										<Input id="numberRing" class="sapUiSmallMargin" width="80vw" maxLength="3" submit=".onPress"/>
+										<Button id="codeSubmit" text="{i18n>labelButtonContinue}" width="80vw" press=".onPress" class="sapUiSmallMargin test"/>
+									</items>
 							</FlexBox>
-	                	</f:SimpleForm>
+						</f:SimpleForm>
 						<Text text="{i18n>problemsHome}" class="sapUiSmallMargin fontSize"></Text>
 						<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline fontSize"/>
 				</items>

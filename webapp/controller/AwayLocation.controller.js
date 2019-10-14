@@ -44,36 +44,34 @@ sap.ui.define([
 			
 			//get model from data.json file
 			var oModel = this.getView().getModel("data");
+			
 			var oRouter = UIComponent.getRouterFor(this);
 			var failedToGetLocation = this.getView().getModel("i18n").getResourceBundle().getText("failLocationAway");
 			var AssetId= JSON.parse(oModel.getJSON()).item.correlationAssetId;
 			var today = new Date();
-			var date = today.getFullYear()+ "-" + checkTime(today.getMonth())+ "-" + checkTime(today.getDate())+"T";
-			var time = checkTime(today.getHours())+ ":" + checkTime(today.getMinutes())+ ":" + checkTime(today.getSeconds())+"Z";
+			var date = today.getFullYear()+ "-" + checkTime(today.getMonth() + 1) + "-" + checkTime(today.getDate())+"T";
+			var time = checkTime(today.getHours()) + ":" + checkTime(today.getMinutes()) + ":" + checkTime(today.getSeconds())+"Z";
 			var Timestamp = date+time;
 			
 			//Create dataObject that contains AssetID , location and timestamp
 			var assetObject=  {
-				"correlationAssetId": AssetId,
-				"latitude": glatitude,
-				"longitude": glongitude,
-				"timestamp": Timestamp
+				latitude: glatitude,
+				longitude: glongitude,
+				timestamp: Timestamp
 			};
-					
-			var assetObjectString=JSON.stringify(assetObject);
+			
+			oModel.setData({ "item": {"location" : assetObject }}, true);
 			
 			// webLink to backend 
-			var weblink = "http://localhost:8081/assetlocation";
+			var weblink = "https://eks.ordina-jworks.io/zpr-bff/assets/" + AssetId +"/location";
 			
 			// Ajax post call ( sending Id, location and timestamp)
 			$.ajax({
 				url: weblink,
 				type: "POST",
 				dataType: "json",
-				contentType: "application/json;charset=utf-8",
-				
-				// Stringify dataObject
-				data:assetObjectString
+				data: JSON.stringify(assetObject), // Stringify dataObject
+				contentType: "application/json;charset=utf-8"
 			})
 			
 			.done(function (){
@@ -82,12 +80,17 @@ sap.ui.define([
 			
 			})
 			
-			.fail(function (){
-				sap.m.MessageBox.show(failedToGetLocation);
+			.fail(function (err){
+				if (err.status == 201) /* jQuery thinks, Status 201 means error, but it doesnt so we have to work around it here */
+				{
+					// handle success
+					oRouter.navTo("ItemBack");
+					return;
+				}
+				
+				oRouter.navTo("AwayLocation");
 			});
 		},
-
-		 
 		 
 		onAfterRendering: function() {
 			var that = this;
@@ -118,8 +121,10 @@ sap.ui.define([
 				var lonlat = ol.proj.transform(coor, 'EPSG:3857', 'EPSG:4326');
 				var longitude = lonlat[0];
 				var latitude = lonlat[1];
-				glatitude= latitude;
-				glongitude=longitude;
+				
+				glatitude = latitude;
+				glongitude = longitude;
+				
 				// If there is already a maker (= layer), delete it as only one marker is allowed
 				map.removeLayer(markerVectorLayer);
 				

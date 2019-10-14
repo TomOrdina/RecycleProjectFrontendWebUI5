@@ -57,13 +57,10 @@ sap.ui.define([
 						location.reload();
 					}
 				});
-			
 			} else {
 				// Error message if no value is entered
 				sap.m.MessageToast.show(sMessage, {duration: 3500});
 			}
 		}
-			
 	});
-
 });

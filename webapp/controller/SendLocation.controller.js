@@ -128,35 +128,33 @@ sap.ui.define([
 			
 			// get model from data.json file
 			var oModel = this.getView().getModel("data");
+			
 			var oRouter = UIComponent.getRouterFor(this);
 			var AssetId = JSON.parse(oModel.getJSON()).item.correlationAssetId;
 			var today = new Date();
-			var date = today.getFullYear()+ "-" + checkTime(today.getMonth())+ "-" + checkTime(today.getDate())+"T";
+			var date = today.getFullYear()+ "-" + checkTime(today.getMonth() + 1)+ "-" + checkTime(today.getDate())+"T";
 			var time = checkTime(today.getHours())+ ":" + checkTime(today.getMinutes())+ ":" + checkTime(today.getSeconds())+"Z";
 			var Timestamp = date+time;
 			
 			//Create dataObject that contains AssetID , location and timestamp
 			var assetObject=  {
-				"latitude": latitude,
-				"longitude": longitude,
-				"timestamp": Timestamp
+				latitude: latitude,
+				longitude: longitude,
+				timestamp: Timestamp
 			};
 			
 			oModel.setData({ "item": {"location" : assetObject }}, true);
-	
+			
 			// webLink to backend 
 			var weblink = "https://eks.ordina-jworks.io/zpr-bff/assets/" + AssetId +"/location";
 			   
 			// Ajax post call ( sending Id, location and timestamp)
 			$.ajax({
-			url: weblink,
-			type: "POST",
-			dataType: "json",
-			contentType: "application/json;charset=utf-8",
-		
-			// Stringify dataObject
-			data:assetObject
-				
+				url: weblink,
+				type: "POST",
+				dataType: "json",
+				data: JSON.stringify(assetObject), // Stringify dataObject
+				contentType: "application/json;charset=UTF-8"
 			})
 			
 			.done(function (){
@@ -164,6 +162,13 @@ sap.ui.define([
 			})
 			
 			.fail(function (err){
+				if (err.status == 201) /* jQuery thinks, Status 201 means error, but it doesnt so we have to work around it here */
+				{
+					// handle success
+					oRouter.navTo("ItemBack");
+					return;
+				}
+				
 				oRouter.navTo("AwayLocation");
 			});
 		},

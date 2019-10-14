@@ -38,9 +38,8 @@ sap.ui.define([
 				var dataToSend = "" + color + "-" + number + "-" + identifier; 
 				
 				var weburl = "https://eks.ordina-jworks.io/zpr-bff/assets?physicalid=" + dataToSend; 
-			
-			$.ajax({
-
+				
+				$.ajax({
 					url: weburl,
 					type: "GET",
 					dataType: "json",
@@ -60,7 +59,5 @@ sap.ui.define([
 				sap.m.MessageToast.show(sMessage, {duration: 3500});
 			}
 		}
-
 	});
-
 });

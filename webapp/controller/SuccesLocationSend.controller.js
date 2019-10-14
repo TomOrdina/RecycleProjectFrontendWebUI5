@@ -19,7 +19,7 @@ sap.ui.define([
 			// Get model from data.json file
 			var oModel = this.getView().getModel("data");
 			var correlationAssetId = JSON.parse(oModel.getJSON()).item.correlationAssetId;
-			console.log(JSON.parse(oModel.getJSON()).item);
+			
 			if (!this.initialized) {
 				this.initialized = true;
 				
@@ -37,29 +37,30 @@ sap.ui.define([
 						zoom: 12
 					})
 				});
-			};
+			}
 			
-			var weburl = "http://localhost:8081/assets"; 
+			var weburl = "https://eks.ordina-jworks.io/zpr-bff/assets/" + correlationAssetId; 
 			$.ajax({
 				url: weburl,
 				type: "GET",
 				dataType: "json",
 				success: function(dataj){
 					datareturned = JSON.stringify(dataj);
+					physicalId = dataj.physicalId;
 					
-					dataj.forEach(function (obj) {
-						if (obj.correlationAssetId === correlationAssetId) {
-							physicalId = obj.physicalId;
-							oLocations = obj.locations;
-							oLocations.sort(function(a, b) {
-								return b.timestamp - a.timestamp;
-							});
-							
-							oLocations.sort(function(a, b) {
-								return a.timestamp - b.timestamp;
-							});
-						}
-					});
+					var assetJourneysLength = dataj.assetJourneys.length;
+					// var count = 1;
+					
+					oLocations = dataj.assetJourneys[assetJourneysLength - 1].locations;
+					
+					// dataj.assetJourneys.forEach(function (obj) {
+						
+					// 	if (count === assetJourneysLength) {
+					// 		oLocations = obj.locations;
+					// 	}
+						
+					// 	count++;
+					// });
 					
 					//var correlationAssetId = datareturned.substring(1,datareturned.length - 1);
 					//oModel.setData({ "item": {"correlationAssetId" : correlationAssetId }}, true);

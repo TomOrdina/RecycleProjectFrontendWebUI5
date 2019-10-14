@@ -10,9 +10,9 @@
     <l:content>
     	<Text text="{i18n>backHeader}" class="sapUiTinyMargin header"/>
         <Text text="{i18n>backPara}" class=" headerLabel sapUiSmallMargin fontSize"/>
-        <Text text="{i18n>backLocation}" class="sapUiSmallMargin fontSize" />
-        <Text id="north" text="waarde 1 binding" class="textBold sapUiSmallMargin"/>
-        <Text id="east" text="waarde 2 binding" class="textBold sapUiSmallMargin"/>
+        <Text text="{i18n>backLocation}" class="sapUiTinyMargin fontSize bold" />
+        <Text id="coordinatesOne" text="" class="sapUiTinyMargin"/>
+        <Text id="coordinatesTwo" text="" class="sapUiTinyMargin"/>
         <FlexBox alignItems="Center" justifyContent="Center" direction="Column">
             <items>
                 <HBox id="map_canvas" width="80vw" height="41vh"></HBox>
