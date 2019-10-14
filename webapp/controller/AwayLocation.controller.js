@@ -55,6 +55,7 @@ sap.ui.define([
 			
 			//Create dataObject that contains AssetID , location and timestamp
 			var assetObject=  {
+				locationSource: "MANUAL",
 				latitude: glatitude,
 				longitude: glongitude,
 				timestamp: Timestamp

@@ -138,6 +138,7 @@ sap.ui.define([
 			
 			//Create dataObject that contains AssetID , location and timestamp
 			var assetObject=  {
+				locationSource: "AUTO",
 				latitude: latitude,
 				longitude: longitude,
 				timestamp: Timestamp

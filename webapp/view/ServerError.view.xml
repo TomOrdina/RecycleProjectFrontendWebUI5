@@ -1,0 +1,23 @@
+<mvc:View
+	controllerName="opensap.recycle.controller.ServerError"
+	xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" >
+
+	<l:VerticalLayout width="100%" class="sapUiResponsiveContentPadding">
+		<FlexBox
+			alignItems="Center"
+			justifyContent="Center"
+			direction="Column">
+				<items>
+						<Text text="{i18n>headerServerError}" class="sapUiSmallMargin header red" />
+						<Text text="{i18n>paraServerError}" class="sapUiSmallMargin fontSize" />
+						<Text text="{i18n>textServerError}" class="sapUiSmallMargin fontSize" />
+						<Button text="{i18n>buttonServerError}" width="80vw" press=".onPress" />
+						<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkServerError}" class="sapUiSmallMarginBottom underline fontSize"/>
+				</items>
+		</FlexBox>
+	</l:VerticalLayout>
+
+</mvc:View>

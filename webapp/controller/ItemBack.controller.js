@@ -130,7 +130,7 @@ sap.ui.define([
 					return;
 				}
 				
-				oRouter.navTo("RouteHome");
+				oRouter.navTo("ServerError");
 			});
 		}
 	});

@@ -63,11 +63,14 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}, {
-				"uri": "css/ol.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				},
+				{
+					"uri": "css/ol.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -79,57 +82,101 @@
 				"controlId": "app",
 				"clearControlAggregation": false
 			},
-			"routes": [{
-				"name": "RouteWelcome",
-				"pattern": "RouteWelcome",
-				"titleTarget": "",
-				"greedy": false,
-				"target": ["TargetWelcome"]
-			}, {
-				"name": "RouteHome",
-				"pattern": "RouteHome",
-				"target": ["TargetHome"]
-			}, {
-				"name": "RouteRingFirstPage",
-				"pattern": "RouteRingFirstPage",
-				"target": ["RingFirstPage"]
-			}, {
-				"name": "RouteRingSecondPage",
-				"pattern": "RouteRingSecondPage",
-				"target": ["RingSecondPage"]
-			}, {
-				"name": "RouteLabelFirstPage",
-				"pattern": "RouteLabelFirstPage",
-				"target": ["LabelFirstPage"]
-			}, {
-				"name": "RouteLabelSecondPage",
-				"pattern": "RouteLabelSecondPage",
-				"target": ["LabelSecondPage"]
-			}, {
-				"name": "Succes",
-				"pattern": "Succes",
-				"target": ["SuccesView"]
-			}, {
-				"name": "Error",
-				"pattern": "Error",
-				"target": ["ErrorView"]
-			}, {
-				"name": "SendLocation",
-				"pattern": "SendLocation",
-				"target": ["SendLocation"]
-			}, {
-				"name": "ItemBack",
-				"pattern": "ItemBack",
-				"target": ["ItemBack"]
-			}, {
-				"name": "AwayLocation",
-				"pattern": "AwayLocation",
-				"target": ["AwayLocation"]
-			}, {
-				"name": "SuccesLocationSend",
-				"pattern": "SuccesLocationSend",
-				"target": ["SuccesLocation"]
-			}],
+			"routes": [
+				{
+					"name": "RouteWelcome",
+					"pattern": "RouteWelcome",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"TargetWelcome"
+					]
+				},
+				{
+					"name": "RouteHome",
+					"pattern": "RouteHome",
+					"target": [
+						"TargetHome"
+					]
+				},
+				{
+					"name": "RouteRingFirstPage",
+					"pattern": "RouteRingFirstPage",
+					"target": [
+						"RingFirstPage"
+					]
+				},
+				{
+					"name": "RouteRingSecondPage",
+					"pattern": "RouteRingSecondPage",
+					"target": [
+						"RingSecondPage"
+					]
+				},
+				{
+					"name": "RouteLabelFirstPage",
+					"pattern": "RouteLabelFirstPage",
+					"target": [
+						"LabelFirstPage"
+					]
+				},
+				{
+					"name": "RouteLabelSecondPage",
+					"pattern": "RouteLabelSecondPage",
+					"target": [
+						"LabelSecondPage"
+					]
+				},
+				{
+					"name": "Succes",
+					"pattern": "Succes",
+					"target": [
+						"SuccesView"
+					]
+				},
+				{
+					"name": "Error",
+					"pattern": "Error",
+					"target": [
+						"ErrorView"
+					]
+				},
+				{
+					"name": "SendLocation",
+					"pattern": "SendLocation",
+					"target": [
+						"SendLocation"
+					]
+				},
+				{
+					"name": "ItemBack",
+					"pattern": "ItemBack",
+					"target": [
+						"ItemBack"
+					]
+				},
+				{
+					"name": "AwayLocation",
+					"pattern": "AwayLocation",
+					"target": [
+						"AwayLocation"
+					]
+				},
+				{
+					"name": "SuccesLocationSend",
+					"pattern": "SuccesLocationSend",
+					"target": [
+						"SuccesLocation"
+					]
+				},
+				{
+					"name": "ServerError",
+					"pattern": "ServerError",
+					"target": [
+						"ServerError"
+					]
+				}
+			],
 			"targets": {
 				"TargetHome": {
 					"viewType": "XML",
@@ -181,6 +228,10 @@
 					"clearControlAggregation": false,
 					"viewName": "Welcome",
 					"viewId": "Welcome"
+				},
+				"ServerError": {
+					"viewType": "XML",
+					"viewName": "ServerError"
 				}
 			}
 		}
