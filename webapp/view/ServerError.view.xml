@@ -14,7 +14,7 @@
 						<Text text="{i18n>headerServerError}" class="sapUiSmallMargin header red" />
 						<Text text="{i18n>paraServerError}" class="sapUiSmallMargin fontSize" />
 						<Text text="{i18n>textServerError}" class="sapUiSmallMargin fontSize" />
-						<Button text="{i18n>buttonServerError}" width="80vw" press=".onPress" />
+						<Button text="{i18n>buttonServerError}" class="sapUiSmallMargin buttonSingle" press=".onPress" />
 						<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkServerError}" class="sapUiSmallMarginBottom underline fontSize"/>
 				</items>
 		</FlexBox>

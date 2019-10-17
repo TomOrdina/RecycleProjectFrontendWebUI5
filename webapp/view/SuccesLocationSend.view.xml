@@ -13,12 +13,16 @@
 					justifyContent="Center"
 					direction="Column">
 						<items>
-								<Text text="{i18n>thankYou}" class="sapUiSmallMargin header"></Text>
-								<Text text="{i18n>sendDone}" class="sapUiSmallMargin fontSize"></Text>
-								<l:HorizontalLayout>
-										<Image src="./images/ZeroPlasticRivers.png" alt="Label example" width="30vw" class="sapUiSmallMargin"></Image>
-								</l:HorizontalLayout>
-								<HBox id="map_canvas" width="80vw" height="45vh" ></HBox>
+								<FlexBox class="succes">
+									<items>
+										<VBox justifyContent="Center">
+											<Text text="{i18n>thankYou}" class="sapUiSmallMargin header"></Text>
+											<Text text="{i18n>sendDone}" class="sapUiSmallMargin fontSize"></Text>
+										</VBox>
+										<Image src="./images/ZeroPlasticRivers.png" alt="Label example" class="sapUiSmallMargin picLogo"></Image>
+									</items>
+								</FlexBox>
+								<HBox id="map_canvas" width="80vw" height="41vh" />
 								<Text text="{i18n>visitHome}" class="sapUiSmallMargin fontSize"></Text>
 								<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHomeDone}" class="sapUiSmallMarginBottom underline fontSize"/>
 						</items>

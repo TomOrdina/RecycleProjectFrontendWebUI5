@@ -29,7 +29,7 @@
 										<Text text="{i18n>headerRingFirstNumber}" class="sapUiSmallMargin header"/>
 										<Label text="{i18n>RingSecondNumber}" class="fontSize"/>
 										<Input id="numberRing" class="sapUiSmallMargin" width="80vw" maxLength="3" submit=".onPress"/>
-										<Button id="codeSubmit" text="{i18n>labelButtonContinue}" width="80vw" press=".onPress" class="sapUiSmallMargin test"/>
+										<Button id="codeSubmit" text="{i18n>labelButtonContinue}" width="80vw" press=".onPress" class="sapUiSmallMargin"/>
 									</items>
 							</FlexBox>
 						</f:SimpleForm>

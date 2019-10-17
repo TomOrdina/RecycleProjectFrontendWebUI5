@@ -15,15 +15,21 @@
 				<items>
 					<Text text="{i18n>headerRingSecond}" class="sapUiSmallMargin header"/>
 					<Text text="{i18n>paraRingSecond}" class="sapUiSmallMargin fontSize"></Text>
-					<Image src="./images/IdentifyCircle.PNG" alt="Label example" width="60vw" class="sapUiSmallMargin fontSize"/>
+					<Image src="./images/IdentifyCircle.PNG" alt="Label example" class="sapUiSmallMargin pic2"/>
+					
 					<f:SimpleForm>
+						<FlexBox
+							alignItems="Center"
+							justifyContent="Center"
+							direction="Column">
 						<Label text="{i18n>RingSecondIdentifier}"/>
-						<ComboBox id="identifierRing" placeholder="{i18n>RingSecondSelect}" width="80vw">
+						<ComboBox id="identifierRing" placeholder="{i18n>RingSecondSelect}" class="buttonSingle">
 							<core:Item key="I" text="A"/>
 							<core:Item key="II" text="B"/>
 							<core:Item key="III" text="C"/>
 						</ComboBox>
-						<Button id="codeSubmit" text="{i18n>labelButtonContinue}" width="80vw" press=".onPress" />
+						<Button id="codeSubmit" text="{i18n>labelButtonContinue}" class="buttonSingle" press=".onPress" />
+						</FlexBox>
                 	</f:SimpleForm>
 					<Text text="{i18n>problemsHome}" class="sapUiSmallMargin fontSize"></Text>
 					<Link href="https://zeroplasticrivers.com/" target="_blank" text="{i18n>linkHome}" class="sapUiSmallMarginBottom underline fontSize"/>

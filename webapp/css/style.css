@@ -1,9 +1,8 @@
 /* Enter your custom styles here */
-
 .header {
 	font-size:6vw;
 }
-
+.screen { width: 100%; }
 .bold {
 	font-weight: bold;
 }
@@ -32,16 +31,117 @@
 	font-size: 4vw;
 	color: gray;
 }
+.buttonSingle {
+	width:80vw;
+}
 
 .red { color: #d90e00; }
 .black { color: black; }
-
+.pic { width: 30vw; }
+.pic2{ width: 50vw; }
+.picLabel {
+	width:60vw;
+}
+.picLogo{
+	width: 30vw;
+}
+.imgWelcome {
+	width: 100%;
+	background-image: url("./images/WelcomePic.png");
+}
+.succes {
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	}
+.pageBack {
+	justify-content: start;
+	flex-direction: column;
+}
 #map_canvas { background-color: green; }
 
-@media screen and (max-width: 320px) {
-    
+@media screen and (min-width: 620px) {
+    .picLabel {
+    	width: 40vw;
+    }
+    .header {
+		font-size:4vw;
+	}
+	.fontPara {
+		font-size: 3vw;
+	}
+	
+	.underline {
+		text-decoration: underline;
+	}
+	.fontSize {
+		font-size: 2vw;
+	}
+	.pic {
+		width:25vw;
+	}
+	
+	.buttonSingle {
+		width:50vw;
+	}
+	.picLogo{
+		width: 25vw;
+	}
 }
 
-@media screen and (max-width: 992px){
-
+@media screen and (min-width: 1025px){
+	
+	
+	.screen {
+		width: 80vw;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+	.header {
+		font-size:2.5vw;
+	}
+	
+	.fontSize {
+		font-size: 2vw;
+	}
+	.fontH1 {
+		font-size: 2vw;
+	}
+	
+	.fontH2 {
+		font-size: 2vw;
+	}
+	.fontPara {
+		font-size: 2vw;
+	}
+	.buttonSingle {
+		width:30vw;
+	}
+	.pic {
+		height:100%;
+		width: 14vw;
+	}
+	.picLabel {
+		width: 40vh;
+	}
+	
+	.picLogo{
+		width: 15vw;
+	}
+	.imgWelcome {
+		height:20vh;
+		object-fit: cover;
+		/*background-image: url("./images/WelcomePicBig.png");*/
+	}
+	.succes {
+		flex-direction: row;
+	}
+	
+	.pic2{ width: 30vw; }
+	.pageBack {
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+}
 }
